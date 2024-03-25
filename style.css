@@ -9,7 +9,6 @@
 
 }
 
-
 html {
     box-sizing: border-box;
     font-family: "ff-meta-serif-web-pro", serif;
@@ -78,24 +77,19 @@ a {
     position: absolute;
     right: 0px;
     transform:  rotate(90deg) perspective(1px);
-    transform-origin: 50px 250px;
+    transform-origin: 175px 210px;
     white-space: nowrap;
     word-spacing: .5rem;
-    color: rgb(193, 189, 189);
+    color: rgb(172, 172, 172);
 
-}
-
-.rightside .center {
-    top: 0vh;
-    color: rgb(158, 158, 158);
 }
 
 .rightside .center:hover a {
-    color: rgba(76, 76, 76, 0.2);
+    color: rgba(1, 1, 1, 0.369);
 }
 
 .rightside .center:hover a:hover {
-    color: rgba(69, 69, 69, 0.8);
+    color: var(--plum);
 }
 
 .leftside{
@@ -115,7 +109,11 @@ a {
 }
 
 .leftside:hover {
-    color: rgba(0,0,0,.5);
+  color: rgba(100, 100, 100, 0.369);
+}
+
+.leftside .bottom:hover a:hover {
+  color: var(--honeydew);
 }
 
 .leftside__inner {
@@ -143,7 +141,7 @@ a {
 .leftside .top {
     top: 5vh;
     text-align: right;
-    color: rgb(200, 200, 200);
+    color: rgb(172, 172, 172);
 }
 .leftside .bottom {
     top: auto;
@@ -209,7 +207,7 @@ a {
     min-height: 100vh;
     width: 100%;
     align-content: center;
-    padding: 20vh 50px 20vh 75px;
+    padding: 20vh 75px 20vh 75px;
 }
 
 .section svg {
@@ -225,7 +223,7 @@ a {
 .section .section__inner {
     height: 100%;
     max-width: 1200px;
-    margin: auto auto auto 50px;
+    margin: auto 50px auto 50px;
 }
 
 .section.section--hello {
@@ -704,3 +702,125 @@ body {
     background-image: radial-gradient(ellipse at top, #10b981 0%, var(--background-color) 50%);
     opacity: var(--blur-opacity);
   }
+
+  .collapsible {
+    color: #ffffff;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+  }
+  
+  /* Style the collapsible content. Note: hidden by default */
+  .content {
+    padding: 10px 5px 10px 5px;
+    display: none;
+    overflow: hidden;
+  }
+
+/* CSS */
+.button-59 {
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #000;
+  box-sizing: border-box;
+  color: #000;
+  cursor: pointer;
+  display: inline-flex;
+  fill: #000;
+  font-size: 16px;
+  font-weight: 400;
+  height: 36px;
+  justify-content: center;
+  letter-spacing: -.8px;
+  line-height: 12px;
+  min-width: 140px;
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  font-family: "ff-meta-serif-web-pro", serif;
+}
+
+.button-59:focus {
+  color: #171e29;
+}
+
+.button-59:hover {
+  border-color: var(--honeydew);
+  color: var(--honeydew);
+  fill: var(--honeydew);
+}
+
+@media (min-width: 768px) {
+  .button-59 {
+    min-width: 170px;
+  }
+}
+
+/**
+ * Tooltip Styles
+ */
+
+/* Add this attribute to the element that needs a tooltip */
+[data-tooltip] {
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+}
+
+/* Hide the tooltip content by default */
+[data-tooltip]:before,
+[data-tooltip]:after {
+  visibility: hidden;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Position tooltip above the element */
+[data-tooltip]:before {
+  position: absolute;
+  bottom: 150%;
+  left: 50%;
+  margin-bottom: 5px;
+  margin-left: -80px;
+  padding: 7px;
+  width: 160px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #000;
+  background-color: hsla(0, 0%, 20%, 0.9);
+  color: #fff;
+  content: attr(data-tooltip);
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+/* Triangle hack to make tooltip look like a speech bubble */
+[data-tooltip]:after {
+  position: absolute;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -5px;
+  width: 0;
+  border-top: 5px solid #000;
+  border-top: 5px solid hsla(0, 0%, 20%, 0.9);
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  content: " ";
+  font-size: 0;
+  line-height: 0;
+}
+
+/* Show tooltip content on hover */
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+  visibility: visible;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+}
