@@ -6,7 +6,7 @@
     --black: #000000ff;
     --eggplant: #583955;
     --plum: #976b92;
-
+    --sakura: #d9b5d3ee;
 }
 
 html {
@@ -42,7 +42,7 @@ html {
 
 a {
     text-decoration: none;
-    color: grey;
+    color: white;
 }
 
 .rightside {
@@ -207,7 +207,7 @@ a {
     min-height: 100vh;
     width: 100%;
     align-content: center;
-    padding: 20vh 75px 20vh 75px;
+    padding: 20vh 45px 20vh 45px;
 }
 
 .section svg {
@@ -246,12 +246,17 @@ a {
     color: white;
 }
 
-.section.section--contact {
-    background-color: white;
-    color: var(--eggplant);
+.section.section--projects {
+  background-color: white;
+  color: var(--asparagus);
 }
 
-h1,.h1,h2,.h2,h3,.h3,h4,.h5 {
+.section.section--contact {
+    background-color: var(--sakura);
+    color: black;
+}
+
+h1,.h1,h2,.h2,h3,.h3,h4,.h4,h5,.h5 {
     font-family: "nimbus-sans", sans-serif;
     font-weight: bold;    
     margin: 0 0 1em;
@@ -338,7 +343,7 @@ footer {
 /************* CARD STYLES ************/
 body {
     --background-color: #18181b;
-    --text-color: #a1a1aa;
+    --text-color: #c3c3c3;
     --card-background-color: rgba(255, 255, 255, 0.015);
     --card-border-color: rgba(255, 255, 255, 0.1);
     --card-box-shadow-1: rgba(0, 0, 0, 0.05);
@@ -703,6 +708,7 @@ body {
     opacity: var(--blur-opacity);
   }
 
+  /* Collapsible section */
   .collapsible {
     color: #ffffff;
     width: 100%;
@@ -718,7 +724,7 @@ body {
     overflow: hidden;
   }
 
-/* CSS */
+/* CSS for button styling */
 .button-59 {
   align-items: center;
   background-color: #fff;
@@ -758,9 +764,7 @@ body {
   }
 }
 
-/**
- * Tooltip Styles
- */
+/** Tooltip Styles **/
 
 /* Add this attribute to the element that needs a tooltip */
 [data-tooltip] {
