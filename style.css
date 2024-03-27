@@ -254,7 +254,7 @@ a {
 
 .section.section--projects {
   background-color: white;
-  color: var(--asparagus);
+  color: var(--honeydew);
 }
 
 .section.section--contact {
@@ -262,12 +262,19 @@ a {
     color: black;
 }
 
-h1,.h1,h2,.h2,h3,.h3,h4,.h4,h5,.h5 {
+h1,.h1,h2,.h2,h3,.h3, h6, .h6{
     font-family: "nimbus-sans", sans-serif;
     font-weight: bold;    
     margin: 0 0 1em;
     line-height: 1;
     letter-spacing: -1px;
+}
+
+h4,.h4, h5, .h5 {
+  font-family: "ff-meta-serif-web-pro", serif;
+  font-weight: bold;    
+  margin: 0 0 1em;
+  line-height: 1;
 }
 
 h1,.h1 {
