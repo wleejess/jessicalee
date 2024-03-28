@@ -63,7 +63,7 @@ a {
 }
 
 .rightside:hover {
-  color: rgba(100, 100, 100, 0.369);
+  color: rgba(100, 100, 100, 0.621);
 }
 
 .rightside__inner {
@@ -86,7 +86,7 @@ a {
   transform-origin: 0 0;
   white-space: nowrap;
   word-spacing: .5rem;
-  color: rgb(172, 172, 172);
+  color: rgb(160, 160, 160);
 }
 
 .rightside .center:hover a:hover {
@@ -116,7 +116,7 @@ a {
 }
 
 .leftside:hover {
-  color: rgba(100, 100, 100, 0.369);
+  color: rgb(124, 124, 124);
 }
 
 .leftside .bottom:hover a:hover {
@@ -248,19 +248,19 @@ a {
     color: white;
 }
 
-.section.section--experience {
-    background-color: var(--frog);
-    color: white;
-}
-
 .section.section--projects {
   background-color: rgba(255, 255, 255, 0.843);
   color: var(--honeydew);
 }
 
+.section.section--experience {
+  background-color: var(--frog);
+  color: white;
+}
+
 .section.section--contact {
-    background-color: var(--lavender);
-    color: var(--eggplant);
+  background-color: var(--frog);
+  color: white;
 }
 
 h1,.h1,h2,.h2,h3,.h3, h6, .h6{
