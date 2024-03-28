@@ -253,7 +253,7 @@ a {
 }
 
 .section.section--projects {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.843);
   color: var(--honeydew);
 }
 
@@ -410,7 +410,7 @@ body {
   .card {
     background-color: var(--background-color);
     box-shadow: 0px var(--card-box-shadow-1-y) var(--card-box-shadow-1-blur) var(--card-box-shadow-1), 0px var(--card-box-shadow-2-y) var(--card-box-shadow-2-blur) var(--card-box-shadow-2), 0 0 0 1px var(--card-border-color);
-    padding: 56px 16px 16px 16px;
+    padding: 16px 16px 16px 16px;
     border-radius: 15px;
     cursor: pointer;
     position: relative;
