@@ -1,12 +1,13 @@
 :root {
-    --floral-white: #FFFCF3ff;
-    --hunter-green: #39583Cff;
-    --asparagus: #77966Aff;
+    --floral-white: #FFFCF3;
+    --hunter-green: #39583C;
+    --frog: #3C5E40;
+    --asparagus: #77966A;
     --honeydew: #A1C195;
-    --black: #000000ff;
+    --black: #000000;
     --eggplant: #583955;
     --plum: #976b92;
-    --sakura: #d9b5d3ee;
+    --lavender: #F2EFF5;
 }
 
 html {
@@ -233,7 +234,7 @@ a {
 }
 
 .section.section--hello {
-    background-color: var(--hunter-green);
+    background-color: var(--frog);
     color: #ffffff;        
 }
 
@@ -248,7 +249,7 @@ a {
 }
 
 .section.section--experience {
-    background-color: var(--asparagus);
+    background-color: var(--frog);
     color: white;
 }
 
@@ -258,8 +259,8 @@ a {
 }
 
 .section.section--contact {
-    background-color: var(--sakura);
-    color: black;
+    background-color: var(--lavender);
+    color: var(--eggplant);
 }
 
 h1,.h1,h2,.h2,h3,.h3, h6, .h6{
