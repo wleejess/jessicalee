@@ -1,4 +1,5 @@
-The second iteration of my personal website.
+Hi and welcome to the second iteration of my personal website!
+For this site, I wanted to keep things simple with HTML and CSS.
 
 Primary goals: 
 1. Create a place to tell my story (both short/long versions of it).
