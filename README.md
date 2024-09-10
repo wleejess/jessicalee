@@ -1,7 +1,16 @@
-Hi and welcome to the second iteration of my personal website!
-For this site, I wanted to keep things simple with HTML and CSS.
 
-Primary goals: 
-1. Create a place to tell my story (both short/long versions of it).
-2. Share projects I've worked on in a way that can showcase my experience with different languages and tools, without breaking NDAs.
-3. Learn and adapt different styles in HTML/CSS.
+<!-- ABOUT THIS PROJECT-->
+## jessicalee.me
+
+We'll call this the **Director's Cut**.<br>
+*Let this be a record of who I was so that if I were to lose myself, I can find my way back.*
+
+<!-- ROADMAP -->
+### Roadmap
+
+- [ ] Revamp layout
+- [ ] Update categories (About Me, Experiences, Thoughts)
+  - [ ] Share film photos
+  - [ ] Share past notes (Project Management, Chemistry, CS, etc)
+- [ ] Update descriptions in different pages
+- [ ] Have an option for adding, editing, and deleting blog entries.
