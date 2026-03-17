@@ -3,21 +3,11 @@ const panels = {
         tag: 'About',
         label: 'about',
         tagStyle: 'background:#EDF5F4;color:#4A8C88;',
-        title: "Hello, I'm Jessica.",
+        title: "Hi, I'm Jess.",
         html: `
             <p class="m-body">
                 Science at the heart of everything I do. I live somewhere at the intersection between
                 life science &amp; computer science — where curiosity meets code.
-            </p>
-            <p class="m-body">
-                After studying Nanoengineering and spending years in biotech and pharma, I discovered
-                how engineers build the tools that power research. That was my catalyst: I wanted to
-                go from <em>using</em> software to <em>building</em> it — not "just enough," but
-                <em>everything</em>.
-            </p>
-            <p class="m-body">
-                I have a bias for action. I'm grateful for my research roots, and I'm focused on
-                building innovative, robust tools that genuinely help people.
             </p>
             <hr class="m-divider"/>
             <p style="font-size:0.8125rem;color:#bbb;line-height:1.65;font-style:italic;">
@@ -37,7 +27,7 @@ const panels = {
                 <div class="m-edu-item" style="border-color:#6BADA8;">
                     <p style="font-size:0.7rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:#4A8C88;font-family:'JetBrains Mono',monospace;">UC San Diego</p>
                     <p style="font-size:1.0625rem;font-weight:400;color:#1a1a1a;margin-top:0.3rem;">B.S. Nanoengineering</p>
-                    <p style="font-size:0.875rem;color:#999;margin-top:0.125rem;">Minor in Chemistry &middot; Class of 2019</p>
+                    <p style="font-size:0.875rem;color:#999;margin-top:0.125rem;">Minor in Chemistry</p>
                 </div>
                 <div class="m-edu-item" style="border-color:#DEAB94;">
                     <p style="font-size:0.7rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:#B8724F;font-family:'JetBrains Mono',monospace;">Oregon State University</p>
@@ -45,11 +35,6 @@ const panels = {
                     <p style="font-size:0.875rem;color:#999;margin-top:0.125rem;">Post-baccalaureate</p>
                 </div>
             </div>
-            <p style="font-size:0.9rem;line-height:1.75;color:#666;margin-top:0.25rem;">
-                With each company I worked at &amp; each team I collaborated with, I refined my
-                passions. One constant through it all:
-                <strong style="color:#1a1a1a;font-weight:500;">I have a bias for action.</strong>
-            </p>
         `
     },
     fwca: {
@@ -150,6 +135,25 @@ const panels = {
                 <span class="m-tag" style="background:#EEF8F7;color:#5A9E98;">JavaScript</span>
                 <span class="m-tag" style="background:#EEF8F7;color:#5A9E98;">Chrome Extension</span>
                 <span class="m-tag" style="background:#EEF8F7;color:#5A9E98;">HTML/CSS</span>
+            </div>
+        `
+    },
+    blog: {
+        tag: 'Notes',
+        label: 'notes',
+        tagStyle: 'background:#EDF5F4;color:#4A8C88;',
+        title: 'Sparknotes to Myself',
+        html: `
+            <p class="m-body">
+                Thoughts on science, software, and the space between — notes I find worth keeping.
+            </p>
+            <div style="margin-top:1.25rem;display:flex;flex-direction:column;gap:0.75rem;">
+                <div style="padding:0.875rem 1rem;border-radius:10px;border:1px solid rgba(107,173,168,0.18);background:#fafaf8;">
+                    <p style="font-size:0.7rem;font-family:'JetBrains Mono',monospace;color:#bbb;letter-spacing:0.08em;margin-bottom:0.35rem;">coming soon</p>
+                    <p style="font-size:0.9rem;color:#aaa;font-style:italic;line-height:1.65;">
+                        More to come here — stay tuned.
+                    </p>
+                </div>
             </div>
         `
     },
@@ -267,7 +271,7 @@ function openPanel(key) {
                 <circle cx="2" cy="6" r="1.2"/><circle cx="5" cy="6" r="1.2"/><circle cx="8" cy="6" r="1.2"/>
             </svg>
             <span class="m-tag" style="${p.tagStyle}">${p.tag}</span>
-            <span class="panel-label">${p.label}</span>
+            <span style="flex:1"></span>
             <button class="panel-close" aria-label="Close">
                 <svg width="9" height="9" viewBox="0 0 9 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
                     <line x1="1" y1="1" x2="8" y2="8"/><line x1="8" y1="1" x2="1" y2="8"/>
@@ -281,7 +285,7 @@ function openPanel(key) {
     `;
 
     // Cascade position: stack from right side, offset each new panel
-    const W   = 320;
+    const W   = 755;
     const off = (spawnCount % 7) * 24;
     el.style.width  = W + 'px';
     el.style.left   = (window.innerWidth - W - 24 - off) + 'px';
