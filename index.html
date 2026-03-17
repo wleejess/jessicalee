@@ -4,293 +4,159 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>jessica lee</title>
+    <meta name="description" content="Jessica Lee — software engineer at the intersection of life science & computer science.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'floral':     '#FFFCF3',
+                        'tradewind':  '#6BADA8',
+                        'downy':      '#9BCFC9',
+                        'peche':      '#DEAB94',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;1,300;1,400&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script src="https://use.typekit.net/ehh4lya.js"></script>
-    <script>try{Typekit.load({ async: true });}catch(e){}</script>
 </head>
 <body>
-    <nav class="leftside">
-        <div class="leftside__inner">
-            <div class="top"><a href="#">jessica w. lee</a></div>
-            <div class="bottom">
-                <a href="mailto:jess.wslee@gmail.com">EMAIL</a>
-                <a href="https://www.linkedin.com/in/wleejessica/">LINKEDIN</a>
-                <a href="https://github.com/wleejess">GITHUB</a>
-            </div>
-        </div>
-    </nav>
 
-    <nav class="rightside">
-        <div class="rightside_inner">
-            <div class="center">
-                <a href="#intro">Intro</a>
-                <a href="#education">Education</a>
-                <a href="#about">About</a>
-                <a href="#projects">Projects</a>
-                <!-- <a href="#experience">Experience</a> -->
-                <a href="#contact">Contact</a>
-            </div>
-        </div>
-    </nav>
+<!-- ── Nav ── -->
+<nav id="topnav">
+    <span class="logo" style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#4A8C88;letter-spacing:0.05em;">jl</span>
+    <div style="display:flex;gap:1.75rem;">
+        <a class="nav-link" href="https://github.com/wleejess" target="_blank" rel="noopener">GitHub</a>
+        <a class="nav-link" href="https://www.linkedin.com/in/wleejessica/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="nav-link" href="mailto:jess.wslee@gmail.com">Email</a>
+    </div>
+</nav>
 
-    <section class="section section--hello" id="intro">
-        <div class="section__inner">
-            <div class="block">
-                <a class="pre" href="#intro"><span>0.</span>intro</a>
-                <h2>hi, my name is jessica.</h2>
-                <p><i>Science at the heart of everything I do.</i>
-                <br>Currently, I'm somewhere at the intersection between life science & computer science.</p>
-                <br>
-                <ul class="anchornav">
-                    <li><a href="#education">Education <span>1. What did you study?</span></a></li>
-                    <li><a href="#about">About <span>2. Who are you?</span></a></li>
-                    <li><a href="#projects">Projects <span>3. What have you done?</span></a></li>
-                    <!-- <li><a href="#experience">Experience <span>4. What do you know?</span></a></li> -->
-                    <li><a href="#contact">Contact <span>4. Send a msg?</span></a></li>
-                </ul>
-            </div>
-        </div>
-    </section>
+<!-- ── Canvas ── -->
+<section id="canvas">
 
-    <section class="section section--intro" id="education">
-        <div class="section__inner">
-            <div class="block">
-                <a class="pre" href="#education"><span>1.</span>Education</a>
-                <h2>science at the heart of everything I do.<br></h2>
-                <p>
-                    I graduated from the <b>University of California, San Diego</b> with a <b>B.S. in Nanoengineering
-                    and a minor in Chemistry</b> in 2019. 
-                </p>
-                <br>
-                <p>
-                    A few years later, I pursued a post-bacc at <b>Oregon State University</b>, graduating with a <b>B.S. in Computer Science.</b>
-                </p>
-                <br>
-                <p>
-                    With each company I worked at & each team I collaborated with, I learned about new technologies and 
-                    refined my passions. Amongst countless variables, one constant is this: <b>I have a bias for action.</b>
-                </p>
-            </div>
-        </div>
-    </section>
+    <!-- Ambient dots — Tradewind, Downy, Peche -->
+    <div class="dec" style="top:11%;left:4%;width:7px;height:7px;border-radius:50%;background:#9BCFC9;opacity:0.5;animation:dfloat 7.2s ease-in-out infinite;"></div>
+    <div class="dec" style="top:32%;left:34%;width:4px;height:4px;border-radius:50%;background:#DEAB94;opacity:0.35;animation:dfloat 9.1s ease-in-out infinite 1s;"></div>
+    <div class="dec" style="top:26%;left:56%;width:5px;height:5px;border-radius:50%;background:#6BADA8;opacity:0.22;animation:dfloat 6.3s ease-in-out infinite 2s;"></div>
+    <div class="dec" style="top:63%;left:32%;width:5px;height:5px;border-radius:50%;background:#9BCFC9;opacity:0.4;animation:dfloat 8.4s ease-in-out infinite 0.4s;"></div>
+    <div class="dec" style="top:82%;left:22%;width:4px;height:4px;border-radius:50%;background:#DEAB94;opacity:0.3;animation:dfloat 7.7s ease-in-out infinite 3.2s;"></div>
+    <div class="dec" style="top:44%;left:83%;width:6px;height:6px;border-radius:50%;background:#6BADA8;opacity:0.18;animation:dfloat 10.5s ease-in-out infinite 1.5s;"></div>
+    <div class="dec" style="top:89%;left:62%;width:4px;height:4px;border-radius:50%;background:#9BCFC9;opacity:0.4;animation:dfloat 6.8s ease-in-out infinite 2.6s;"></div>
+    <div class="dec" style="top:52%;left:48%;width:3px;height:3px;border-radius:50%;background:#DEAB94;opacity:0.25;animation:dfloat 11s ease-in-out infinite 4s;"></div>
 
-    <section class="section section--about" id="about">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10" preserveAspectRatio="none">
-            <polygon points="100 0 100 10 0 10" />
-        </svg>
+    <!-- Decorative hexagons -->
+    <svg class="dec" style="top:7%;left:26%;opacity:0.07;animation:dfloat 12s ease-in-out infinite;" width="30" height="30" viewBox="0 0 30 30" fill="none">
+        <polygon points="15,2 26,8.5 26,21.5 15,28 4,21.5 4,8.5" stroke="#6BADA8" stroke-width="1.5"/>
+    </svg>
+    <svg class="dec" style="top:76%;left:79%;opacity:0.07;animation:dfloat 9.5s ease-in-out infinite 2s;" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <polygon points="12,2 21,7 21,17 12,22 3,17 3,7" stroke="#DEAB94" stroke-width="1.5"/>
+    </svg>
+    <svg class="dec" style="top:14%;left:78%;opacity:0.06;animation:dfloat 14s ease-in-out infinite 5s;" width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <polygon points="10,1 18,5.5 18,14.5 10,19 2,14.5 2,5.5" stroke="#9BCFC9" stroke-width="1.5"/>
+    </svg>
+    <!-- Faint concentric rings behind hero -->
+    <svg class="dec" style="top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.03;pointer-events:none;" width="400" height="400" viewBox="0 0 400 400" fill="none">
+        <circle cx="200" cy="200" r="190" stroke="#6BADA8" stroke-width="1"/>
+        <circle cx="200" cy="200" r="138" stroke="#6BADA8" stroke-width="1"/>
+    </svg>
 
-        <div class="section__inner">
-            <div class="block">
-                <a class="pre" href="#about"><span>2.</span>About</a>
-                <h2>ideate, iterate, & inspire.</h2>
-                <p>
-                    Driven by a curiosity to learn more and a dedication to others, I have always been captivated 
-                    by how our understanding of <u data-tooltip="chemistry, math, computer science"><i>something</i></u> 
-                    leads to the development of <u data-tooltip="medicine, algorithms, applications"><i>more somethings</i></u>. 
-                </p>
-                <br>
-                <button class="button-59 collapsible">(everything in between)</button>
-                <div class="content">
-                    <p>
-                        With this <i>initial</i> sense of what I wanted to do, I studied Nanoengineering
-                        and worked in biotech and pharma for a few years. While working on a project, I learned more about 
-                        <i>computer science</i> and how engineers would develop new applications and update 
-                        existing features to support our endeavors.
-                    </p>
-                    <br>
-                    <h4>This was my catalyst for change.</h4>
-                    <p>
-                        I started with learning Python and R on the side in order to analyze and visualize our datasets, 
-                        and slowly began to write programs to simplify tasks. I was able to learn enough to get started, and 
-                        enough to get things working - but not enough to ever fully be confident in my implementations, or the results they 
-                        produced.
-                    </p>
-                    <br>
-                    <p>
-                        It felt like a fork in the road: I could either continue in medicinal chemistry, or take a deeper dive into 
-                        programming. After much contemplation, I decided that I wanted to give this a "proper chance" - to learn the fundamentals,
-                        and to perservere through the <u data-tooltip="data structures, algorithms, assembly, operating systems, more">gauntlet of classes</u>. 
-                        <br>
-                        <br>
-                        Not "just enough," but <i>everything</i>.
-                    </p>
-                </div> 
-                <br>
-                <br>
-                <p>
-                    I'm grateful for my experiences in research and am shifting my focus to software engineering,
-                    with a goal to work on innovative and robust tools to help others.
-                </p>
+
+    <!-- ── Hero ── -->
+    <div id="hero">
+        <h1>jessica lee</h1>
+        <p class="tagline">Life Science &times; Computer Science</p>
+        <p class="hint">&middot; click the nodes to explore &middot;</p>
+    </div>
+
+    <!-- ── Nodes ── -->
+    <div id="nodes">
+
+        <!-- About / Bio — Tradewind -->
+        <div class="node f1" data-panel="bio" style="top:20%;left:10%;">
+            <div class="node-ring" style="background:#EDF5F4;border-color:#6BADA8;color:#4A8C88;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="8" r="3.5"/>
+                    <path d="M3 21c0-4.4 4-8 9-8s9 3.6 9 8"/>
+                </svg>
             </div>
+            <span class="node-label" style="color:#4A8C88;">about</span>
         </div>
 
-    </section>
-
-    <section class="section section--projects" id="projects">
-        <div class="section__inner">
-            <div class="block">
-                <a class="pre" href="#projects" style="color:#39583C"><span>3.</span>Projects</a>
-                <h2 style="color:#39583C">a few things i've worked on:</h2>
-                <div class="grid">
-
-                    <div class="card">
-                        <!-- <a href="fwca.html" target="_blank"> -->
-
-                        <h4>forestry wellness check-up</h4>
-                        <h5 style="color:#A1C195">capstone project | cross-platform application | dart, flutter</h5>
-                        <p style="color: white">
-                            An iOS and Android compatible application that digitizes the process of surveying forests. Provider was 
-                            used for state management of widgets, and SQFlite was used as our lightweight, local relational database.    
-                        </p>
-                        <div class="shine"></div>
-                        <div class="background">
-                            <div class="tiles">
-                                <div class="tile tile-1"></div>
-                                <div class="tile tile-2"></div>
-                                <div class="tile tile-3"></div>
-                                <div class="tile tile-4"></div>
-            
-                                <div class="tile tile-5"></div>
-                                <div class="tile tile-6"></div>
-                                <div class="tile tile-7"></div>
-                                <div class="tile tile-8"></div>
-            
-                                <div class="tile tile-9"></div>
-                                <div class="tile tile-10"></div>
-                            </div>
-            
-                            <div class="line line-1"></div>
-                            <div class="line line-2"></div>
-                            <div class="line line-3"></div>
-                        </div>
-                        <!-- </a> -->
-                    </div>
-
-                    <div class="card">
-                        <!-- <a href="sar-analysis.html" target="_blank"> --> 
-                        <h4>data analysis of structure-activity (sar) relationships</h4>
-                        <h5 style="color:#A1C195">personal project | python, r</h5>
-                        <p style="color: white">
-                            A project I worked on resulted in the generation of ~5,000 data points each week.
-                            This proved to be a challenge for our existing tools for analysis, as the data points began to overlap one another.
-                            <br>                        
-                            <h4>Literature References</h4>
-                            <p style="margin-left: 25px; color: white">
-                                - <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6646408/">Finding Constellations in Chemical Space Through Core Analysis</a>
-                                <br>
-                                - <a href="https://www.nature.com/articles/s41586-018-0056-8">Nanoscale Synthesis and Affinity Ranking</a>
-                            </p>
-                        </p>
-                        <div class="shine"></div>
-                        <div class="background">
-                            <div class="tiles">
-                                <div class="tile tile-1"></div>
-                                <div class="tile tile-2"></div>
-                                <div class="tile tile-3"></div>
-                                <div class="tile tile-4"></div>
-            
-                                <div class="tile tile-5"></div>
-                                <div class="tile tile-6"></div>
-                                <div class="tile tile-7"></div>
-                                <div class="tile tile-8"></div>
-            
-                                <div class="tile tile-9"></div>
-                                <div class="tile tile-10"></div>
-                            </div>
-            
-                            <div class="line line-1"></div>
-                            <div class="line line-2"></div>
-                            <div class="line line-3"></div>
-                        </div>
-                        <!-- </a> -->
-                    </div>
-
-                    <div class="card">
-                        <!-- <a href="chemystery.html" target="_blank"> -->
-                        <h4>chemystery resolver</h4>
-                        <h5 style="color:#A1C195">personal project | chrome extension | javascript, html/css</h5>
-                        <p style="color: white">
-                            Currently still a work in progress! 
-                            <br>
-                            A chrome extension that allows users to highlight the IUPAC name of a chemical 
-                            in their browsers and have a pop-up that displays the 2D chemical structure, molecular weight, and molecular formula.
-                            <p style="margin-left: 25px; color: white">
-                                - Recognize when user highlights text, and store the highlighted text in a variable. (Done)
-                                <br>
-                                - Display pop up when text is selected. (Done)
-                                <br>
-                                - Use an API to input the chemical name and request image of its structure (In Progress).
-                            </p>
-                        </p>
-                        <div class="shine"></div>
-                        <div class="background">
-                            <div class="tiles">
-                                <div class="tile tile-1"></div>
-                                <div class="tile tile-2"></div>
-                                <div class="tile tile-3"></div>
-                                <div class="tile tile-4"></div>
-            
-                                <div class="tile tile-5"></div>
-                                <div class="tile tile-6"></div>
-                                <div class="tile tile-7"></div>
-                                <div class="tile tile-8"></div>
-            
-                                <div class="tile tile-9"></div>
-                                <div class="tile tile-10"></div>
-                            </div>
-            
-                            <div class="line line-1"></div>
-                            <div class="line line-2"></div>
-                            <div class="line line-3"></div>
-                        </div>
-                        <!-- </a> -->
-                    </div>
-                </div>  
+        <!-- Education — Quaint Peche -->
+        <div class="node f3" data-panel="edu" style="top:16%;left:68%;">
+            <div class="node-ring" style="background:#FAF1EC;border-color:#DEAB94;color:#B8724F;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 10l10-5 10 5-10 5z"/>
+                    <path d="M6 12v5c0 2 6 3 6 3s6-1 6-3v-5"/>
+                    <line x1="22" y1="10" x2="22" y2="16"/>
+                </svg>
             </div>
-
-        </div>
-    </section>
-
-
-    <!-- <section class="section section--experience" id="experience">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10" preserveAspectRatio="none">
-            <polygon points="100 10 0 0 0 10" />
-        </svg>
-
-        <div class="section__inner">
-            <div class="block">
-                <a class="pre" href="#experience"><span>4.</span>Experience</a>
-                <h3>background in research & development &#8594; 
-                    transitioning into software engineering.</h3>
-            </div>
-            <p>
-                Project Manager @ Augmedix
-            <br>
-                Research Associate @ Vertex Pharmaceuticals
-            <br>
-                Analytical Methods & Product Development @ Dare Bioscience
-            </p>
+            <span class="node-label" style="color:#B8724F;">education</span>
         </div>
 
-    </section> -->
+        <!-- Project: Forestry Wellness — Downy (clustered left) -->
+        <div class="node f2" data-panel="fwca" style="top:58%;left:28%;">
+            <div class="node-ring" style="background:#EEF8F7;border-color:#9BCFC9;color:#5A9E98;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="22" x2="12" y2="13"/>
+                    <path d="M12 13c0 0-5-2-5-7a5 5 0 0 1 10 0c0 5-5 7-5 7z"/>
+                    <path d="M9 17c-2.2 0-4-1.3-4-4"/>
+                    <path d="M15 17c2.2 0 4-1.3 4-4"/>
+                </svg>
+            </div>
+            <span class="node-label" style="color:#5A9E98;">forest wellness</span>
+        </div>
 
-    <section class="section section--contact" id="contact">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10" preserveAspectRatio="none">
-            <polygon points="100 0 100 10 0 10" />
-        </svg>
-        
-        <div class="section__inner">
-            <div class="block">
-                <a class="pre" href="#contact"><span>4.</span>Contact</a>
-                <h2>Send a msg:<br>
-                    <a style="color: black" href="mailto:jess.wslee@gmail.com">jess.wslee@gmail.com</a></h2>
+        <!-- Project: SAR Analysis — Quaint Peche (clustered center-bottom) -->
+        <div class="node f4" data-panel="sar" style="top:72%;left:45%;">
+            <div class="node-ring" style="background:#FAF1EC;border-color:#DEAB94;color:#B8724F;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="6"  cy="6"  r="2"/>
+                    <circle cx="18" cy="6"  r="2"/>
+                    <circle cx="12" cy="17" r="2"/>
+                    <line x1="7.7"  y1="6.9"  x2="10.5" y2="15.2"/>
+                    <line x1="16.3" y1="6.9"  x2="13.5" y2="15.2"/>
+                    <line x1="8"    y1="6"    x2="16"   y2="6"/>
+                </svg>
+            </div>
+            <span class="node-label" style="color:#B8724F;">sar analysis</span>
+        </div>
+
+        <!-- Project: Chemystery — Downy (clustered right) -->
+        <div class="node f5" data-panel="chem" style="top:58%;left:62%;">
+            <div class="node-ring" style="background:#EEF8F7;border-color:#9BCFC9;color:#5A9E98;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/>
+                    <ellipse cx="12" cy="12" rx="10" ry="3.5"/>
+                    <ellipse cx="12" cy="12" rx="10" ry="3.5" transform="rotate(60 12 12)"/>
+                    <ellipse cx="12" cy="12" rx="10" ry="3.5" transform="rotate(120 12 12)"/>
+                </svg>
+            </div>
+            <span class="node-label" style="color:#5A9E98;">chemystery</span>
+        </div>
+
+        <!-- Contact — Tradewind -->
+        <div class="node-wrap-center">
+            <div class="node f6" data-panel="contact">
+                <div class="node-ring" style="background:#EDF5F4;border-color:#6BADA8;color:#4A8C88;">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="4" width="20" height="16" rx="2.5"/>
+                        <polyline points="2,7.5 12,14 22,7.5"/>
+                    </svg>
+                </div>
+                <span class="node-label" style="color:#4A8C88;">contact</span>
             </div>
         </div>
-    </section>
 
-    <script src="collapsible.js"></script>
+    </div><!-- #nodes -->
+</section>
+
+<script src="panels.js"></script>
 </body>
-<footer>
-    <p><a href="https://codepen.io/l4ci/pen/RGazmp">starting template</a> | modified with logic & love by: Jessica Lee</p>
-</footer>
 </html>
