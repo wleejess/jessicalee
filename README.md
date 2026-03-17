@@ -1,16 +1,33 @@
+# jessicalee.me
 
-<!-- ABOUT THIS PROJECT-->
-## jessicalee.me
+Personal portfolio website for Jessica Lee — software engineer at the intersection of life science and computer science.
 
-We'll call this the **Director's Cut**.<br>
-*Let this be a record of who I was so that if I were to lose myself, I can find my way back.*
+Built with vanilla HTML, CSS, and JavaScript. No frameworks, no build step.
 
-<!-- ROADMAP -->
-### Roadmap
+## About
 
-- [ ] Revamp layout
-- [ ] Update categories (About Me, Experiences, Thoughts)
-  - [ ] Share film photos
-  - [ ] Share past notes (Project Management, Chemistry, CS, etc)
-- [ ] Update descriptions in different pages
-- [ ] Have an option for adding, editing, and deleting blog entries.
+This is the **Director's Cut** — a living record of the work, projects, and ideas that shape who I am as an engineer. It's designed to grow alongside me.
+
+## Tech
+
+- Vanilla HTML / CSS / JavaScript
+- Tailwind CSS (CDN, for utility classes)
+- Google Fonts: Inter, JetBrains Mono
+- Hosted on GitHub Pages
+
+## Structure
+
+```
+jessicalee/
+├── index.html      # markup
+├── style.css       # all styles
+├── panels.js       # panel content data + interactive logic
+└── CNAME           # custom domain config
+```
+
+## Roadmap
+
+- [x] Revamp layout — interactive canvas with floating panels
+- [ ] Add blog / notes section (Project Management, Chemistry, CS, etc.)
+- [ ] Film photo gallery
+- [ ] Individual project detail pages
