@@ -67,18 +67,26 @@
     </svg>
 
 
+    <!-- ── Garden layer (interactive botanical vines) ── -->
+    <svg id="garden" aria-hidden="true"></svg>
+
     <!-- ── Hero ── -->
     <div id="hero">
         <h1>jessica lee</h1>
-        <p class="tagline">Life Science &times; Computer Science</p>
-        <p class="hint">&middot; click the nodes to explore &middot;</p>
+        <div class="science-cycle">
+            <span class="cycle-container">
+                <span class="cycle-ghost">computer</span>
+                <span id="cycle-word">life</span>
+            </span><span class="cycle-static"> science</span>
+        </div>
+        <p class="tagline">@ the intersection between software engineering & research.</p>
     </div>
 
     <!-- ── Nodes ── -->
     <div id="nodes">
 
         <!-- About / Bio — Tradewind -->
-        <div class="node f1" data-panel="bio" style="top:20%;left:10%;">
+        <div class="node f1" data-panel="bio" style="top:14%;left:7%;">
             <div class="node-ring" style="background:#EDF5F4;border-color:#6BADA8;color:#4A8C88;">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="12" cy="8" r="3.5"/>
@@ -89,7 +97,7 @@
         </div>
 
         <!-- Education — Quaint Peche -->
-        <div class="node f3" data-panel="edu" style="top:16%;left:68%;">
+        <div class="node f3" data-panel="edu" style="top:9%;left:72%;">
             <div class="node-ring" style="background:#FAF1EC;border-color:#DEAB94;color:#B8724F;">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M2 10l10-5 10 5-10 5z"/>
@@ -100,8 +108,8 @@
             <span class="node-label" style="color:#B8724F;">education</span>
         </div>
 
-        <!-- Project: Forestry Wellness — Downy (clustered left) -->
-        <div class="node f2" data-panel="fwca" style="top:58%;left:28%;">
+        <!-- Project: Forestry Wellness — Downy -->
+        <div class="node f2" data-panel="fwca" style="top:67%;left:8%;">
             <div class="node-ring" style="background:#EEF8F7;border-color:#9BCFC9;color:#5A9E98;">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                     <line x1="12" y1="22" x2="12" y2="13"/>
@@ -113,8 +121,8 @@
             <span class="node-label" style="color:#5A9E98;">forest wellness</span>
         </div>
 
-        <!-- Project: SAR Analysis — Quaint Peche (clustered center-bottom) -->
-        <div class="node f4" data-panel="sar" style="top:72%;left:45%;">
+        <!-- Project: SAR Analysis — Quaint Peche -->
+        <div class="node f4" data-panel="sar" style="top:74%;left:60%;">
             <div class="node-ring" style="background:#FAF1EC;border-color:#DEAB94;color:#B8724F;">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="6"  cy="6"  r="2"/>
@@ -128,8 +136,8 @@
             <span class="node-label" style="color:#B8724F;">sar analysis</span>
         </div>
 
-        <!-- Project: Chemystery — Downy (clustered right) -->
-        <div class="node f5" data-panel="chem" style="top:58%;left:62%;">
+        <!-- Project: Chemystery — Downy -->
+        <div class="node f5" data-panel="chem" style="top:36%;left:80%;">
             <div class="node-ring" style="background:#EEF8F7;border-color:#9BCFC9;color:#5A9E98;">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/>
@@ -139,6 +147,17 @@
                 </svg>
             </div>
             <span class="node-label" style="color:#5A9E98;">chemystery</span>
+        </div>
+
+        <!-- Blog / Notes — Tradewind -->
+        <div class="node f7" data-panel="blog" style="top:44%;left:16%;">
+            <div class="node-ring" style="background:#EDF5F4;border-color:#6BADA8;color:#4A8C88;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 20h9"/>
+                    <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/>
+                </svg>
+            </div>
+            <span class="node-label" style="color:#4A8C88;">notes</span>
         </div>
 
         <!-- Contact — Tradewind -->
@@ -157,6 +176,117 @@
     </div><!-- #nodes -->
 </section>
 
+<!-- ── Bottom-right corner buttons ── -->
+<div id="corner-btns" style="position:fixed;bottom:2rem;right:2rem;z-index:10;display:flex;gap:1rem;align-items:flex-end;">
+
+    <!-- Palette reference -->
+    <div id="palette-btn" class="node f5">
+        <div class="node-ring" style="background:#EDF5F4;border-color:#6BADA8;color:#4A8C88;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.437-.652-.437-1.125 0-.891.75-1.562 1.687-1.562H17c2.761 0 5-2.239 5-5 0-5.523-4.477-10-10-10z"/>
+                <circle cx="8.5"  cy="8.5"  r="1.2" fill="currentColor" stroke="none"/>
+                <circle cx="12"   cy="6.5"  r="1.2" fill="currentColor" stroke="none"/>
+                <circle cx="15.5" cy="8.5"  r="1.2" fill="currentColor" stroke="none"/>
+                <circle cx="17"   cy="12.5" r="1.2" fill="currentColor" stroke="none"/>
+            </svg>
+        </div>
+        <span class="node-label" style="color:#4A8C88;">palette</span>
+    </div>
+
+    <!-- Bloom -->
+    <div id="flower-spawner" class="node f2">
+        <div class="node-ring" style="background:#EDF5F4;border-color:#6BADA8;color:#4A8C88;">
+            <svg width="28" height="28" viewBox="-14 -14 28 28" fill="currentColor">
+                <ellipse cx="0" cy="-6" rx="2.8" ry="5.5"/>
+                <ellipse cx="0" cy="-6" rx="2.8" ry="5.5" transform="rotate(72)"/>
+                <ellipse cx="0" cy="-6" rx="2.8" ry="5.5" transform="rotate(144)"/>
+                <ellipse cx="0" cy="-6" rx="2.8" ry="5.5" transform="rotate(216)"/>
+                <ellipse cx="0" cy="-6" rx="2.8" ry="5.5" transform="rotate(288)"/>
+                <circle cx="0" cy="0" r="2.5"/>
+            </svg>
+        </div>
+        <span class="node-label" style="color:#4A8C88;">bloom</span>
+    </div>
+
+</div>
+
+<!-- ── Palette popover ── -->
+<div id="palette-popover">
+    <p style="font-size:0.65rem;font-family:'JetBrains Mono',monospace;letter-spacing:0.12em;text-transform:uppercase;color:#bbb;margin-bottom:1rem;">design reference</p>
+
+    <!-- Colors -->
+    <p style="font-size:0.6rem;font-family:'JetBrains Mono',monospace;letter-spacing:0.14em;text-transform:uppercase;color:#ccc;margin-bottom:0.625rem;">colors</p>
+    <div style="display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1.125rem;">
+        <div style="display:flex;align-items:center;gap:0.75rem;">
+            <span style="width:20px;height:20px;border-radius:50%;background:#FFFCF3;border:1px solid #e8e6de;flex-shrink:0;"></span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#aaa;flex:1;">floral</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#888;">#FFFCF3</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:0.75rem;">
+            <span style="width:20px;height:20px;border-radius:50%;background:#6BADA8;flex-shrink:0;"></span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#aaa;flex:1;">tradewind</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#6BADA8;">#6BADA8</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:0.75rem;">
+            <span style="width:20px;height:20px;border-radius:50%;background:#9BCFC9;flex-shrink:0;"></span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#aaa;flex:1;">downy</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#9BCFC9;">#9BCFC9</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:0.75rem;">
+            <span style="width:20px;height:20px;border-radius:50%;background:#DEAB94;flex-shrink:0;"></span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#aaa;flex:1;">peche</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#DEAB94;">#DEAB94</span>
+        </div>
+    </div>
+
+    <!-- Type -->
+    <p style="font-size:0.6rem;font-family:'JetBrains Mono',monospace;letter-spacing:0.14em;text-transform:uppercase;color:#ccc;margin-bottom:0.625rem;">type</p>
+    <div style="display:flex;flex-direction:column;gap:0.5rem;">
+        <div style="display:flex;align-items:baseline;gap:0.75rem;">
+            <span style="font-family:'Inter',sans-serif;font-size:0.8125rem;font-weight:400;color:#555;flex:1;">Inter</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#bbb;">body &amp; headings</span>
+        </div>
+        <div style="display:flex;align-items:baseline;gap:0.75rem;">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#555;flex:1;">JetBrains Mono</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#bbb;">labels &amp; code</span>
+        </div>
+    </div>
+</div>
+
 <script src="panels.js"></script>
+<script src="garden.js"></script>
+<script>
+    // ── Palette popover ──
+    (function () {
+        const btn = document.getElementById('palette-btn');
+        const pop = document.getElementById('palette-popover');
+        btn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            pop.classList.toggle('palette-open');
+        });
+        document.addEventListener('click', function (e) {
+            if (!pop.contains(e.target) && !btn.contains(e.target)) {
+                pop.classList.remove('palette-open');
+            }
+        });
+    })();
+
+    // ── Cycling text ──
+    (function () {
+        const words  = ['life', 'computer'];
+        const colors = ['#6BADA8', '#DEAB94'];
+        let idx = 0;
+        const el = document.getElementById('cycle-word');
+        setInterval(function () {
+            el.classList.add('cycle-fade-out');
+            setTimeout(function () {
+                idx = (idx + 1) % 2;
+                el.textContent  = words[idx];
+                el.style.color  = colors[idx];
+                el.classList.remove('cycle-fade-out');
+            }, 350);
+        }, 2800);
+    })();
+</script>
 </body>
 </html>
