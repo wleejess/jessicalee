@@ -29,11 +29,18 @@
 
 <!-- ── Nav ── -->
 <nav id="topnav">
-    <span class="logo" style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#4A8C88;letter-spacing:0.05em;">jl</span>
-    <div style="display:flex;gap:1.75rem;">
-        <a class="nav-link" href="https://github.com/wleejess" target="_blank" rel="noopener">GitHub</a>
-        <a class="nav-link" href="https://www.linkedin.com/in/wleejessica/" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="nav-link" href="mailto:jess.wslee@gmail.com">Email</a>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.5rem;margin-left:auto;">
+        <div style="display:flex;gap:1.75rem;">
+            <a class="nav-link" href="https://github.com/wleejess" target="_blank" rel="noopener">GitHub</a>
+            <a class="nav-link" href="https://www.linkedin.com/in/wleejessica/" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="nav-link" href="mailto:jess.wslee@gmail.com">Email</a>
+        </div>
+        <div class="science-cycle" style="font-size:0.65rem;margin-top:0;letter-spacing:0.12em;">
+            <span class="cycle-container">
+                <span class="cycle-ghost">computer</span>
+                <span id="cycle-word">life</span>
+            </span><span class="cycle-static"> science</span>
+        </div>
     </div>
 </nav>
 
@@ -73,12 +80,6 @@
     <!-- ── Hero ── -->
     <div id="hero">
         <h1>jessica lee</h1>
-        <div class="science-cycle">
-            <span class="cycle-container">
-                <span class="cycle-ghost">computer</span>
-                <span id="cycle-word">life</span>
-            </span><span class="cycle-static"> science</span>
-        </div>
         <p class="tagline">@ the intersection between software engineering & research.</p>
     </div>
 
@@ -96,21 +97,21 @@
             <span class="node-label" style="color:#4A8C88;">about</span>
         </div>
 
-        <!-- Education — Quaint Peche -->
+        <!-- Education — Tradewind -->
         <div class="node f3" data-panel="edu" style="top:9%;left:72%;">
-            <div class="node-ring" style="background:#FAF1EC;border-color:#DEAB94;color:#B8724F;">
+            <div class="node-ring" style="background:#EDF5F4;border-color:#6BADA8;color:#4A8C88;">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M2 10l10-5 10 5-10 5z"/>
                     <path d="M6 12v5c0 2 6 3 6 3s6-1 6-3v-5"/>
                     <line x1="22" y1="10" x2="22" y2="16"/>
                 </svg>
             </div>
-            <span class="node-label" style="color:#B8724F;">education</span>
+            <span class="node-label" style="color:#4A8C88;">education</span>
         </div>
 
-        <!-- Project: Forestry Wellness — Downy -->
+        <!-- Project: Forestry Wellness — Peche -->
         <div class="node f2" data-panel="fwca" style="top:67%;left:8%;">
-            <div class="node-ring" style="background:#EEF8F7;border-color:#9BCFC9;color:#5A9E98;">
+            <div class="node-ring" style="background:#FAF1EC;border-color:#DEAB94;color:#B8724F;">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                     <line x1="12" y1="22" x2="12" y2="13"/>
                     <path d="M12 13c0 0-5-2-5-7a5 5 0 0 1 10 0c0 5-5 7-5 7z"/>
@@ -118,7 +119,7 @@
                     <path d="M15 17c2.2 0 4-1.3 4-4"/>
                 </svg>
             </div>
-            <span class="node-label" style="color:#5A9E98;">forest wellness</span>
+            <span class="node-label" style="color:#B8724F;">forest wellness</span>
         </div>
 
         <!-- Project: SAR Analysis — Quaint Peche -->
@@ -136,9 +137,9 @@
             <span class="node-label" style="color:#B8724F;">sar analysis</span>
         </div>
 
-        <!-- Project: Chemystery — Downy -->
+        <!-- Project: Chemystery — Peche -->
         <div class="node f5" data-panel="chem" style="top:36%;left:80%;">
-            <div class="node-ring" style="background:#EEF8F7;border-color:#9BCFC9;color:#5A9E98;">
+            <div class="node-ring" style="background:#FAF1EC;border-color:#DEAB94;color:#B8724F;">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/>
                     <ellipse cx="12" cy="12" rx="10" ry="3.5"/>
@@ -146,7 +147,20 @@
                     <ellipse cx="12" cy="12" rx="10" ry="3.5" transform="rotate(120 12 12)"/>
                 </svg>
             </div>
-            <span class="node-label" style="color:#5A9E98;">chemystery</span>
+            <span class="node-label" style="color:#B8724F;">chemystery</span>
+        </div>
+
+        <!-- Experience — Tradewind -->
+        <div class="node f4" data-panel="exp" style="top:25%;left:44%;">
+            <div class="node-ring" style="background:#EDF5F4;border-color:#6BADA8;color:#4A8C88;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="7" width="20" height="14" rx="2.5"/>
+                    <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+                    <line x1="12" y1="12" x2="12" y2="12.01"/>
+                    <path d="M2 12.5s4.5 2.5 10 2.5 10-2.5 10-2.5"/>
+                </svg>
+            </div>
+            <span class="node-label" style="color:#4A8C88;">experience</span>
         </div>
 
         <!-- Blog / Notes — Tradewind -->
@@ -253,8 +267,9 @@
     </div>
 </div>
 
-<script src="panels.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script src="garden.js"></script>
+<script type="module" src="panels.js"></script>
 <script>
     // ── Palette popover ──
     (function () {
