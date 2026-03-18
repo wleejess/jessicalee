@@ -24,12 +24,12 @@ body {
     z-index: 40;
     padding: 1.25rem 2rem;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: flex-end;
+    align-items: flex-start;
     background: linear-gradient(to bottom, rgba(255,252,243,0.92) 60%, transparent);
     pointer-events: none;
 }
-#topnav a, #topnav .logo { pointer-events: all; }
+#topnav a { pointer-events: all; }
 .nav-link {
     font-size: 11px;
     font-weight: 500;
@@ -362,6 +362,60 @@ body {
     opacity: 1;
     pointer-events: auto;
     transform: translateY(0);
+}
+
+/* ── Note body (rendered markdown) ── */
+.note-body { margin-top: 0.25rem; }
+.note-body h1, .note-body h2, .note-body h3 {
+    font-weight: 400;
+    color: #1a1a1a;
+    letter-spacing: -0.015em;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+.note-body h1 { font-size: 1.4rem; }
+.note-body h2 { font-size: 1.1rem; }
+.note-body h3 { font-size: 0.95rem; font-weight: 500; }
+.note-body p  { font-size: 0.9rem; line-height: 1.8; color: #5a5a5a; margin-top: 0.75rem; }
+.note-body ul, .note-body ol {
+    padding-left: 1.25rem;
+    margin-top: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+.note-body li { font-size: 0.875rem; line-height: 1.7; color: #5a5a5a; }
+.note-body a  { color: #4A8C88; text-decoration: underline; text-underline-offset: 3px; }
+.note-body a:hover { color: #6BADA8; }
+.note-body hr { border: none; border-top: 1px solid #f0f0ea; margin: 1.25rem 0; }
+.note-body code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    background: #f5f5f0;
+    padding: 0.15em 0.4em;
+    border-radius: 4px;
+    color: #4A8C88;
+}
+.note-body pre {
+    background: #f5f5f0;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 0.875rem;
+    overflow-x: auto;
+}
+.note-body pre code {
+    background: none;
+    padding: 0;
+    font-size: 0.8rem;
+    color: #555;
+}
+.note-body blockquote {
+    border-left: 2px solid #6BADA8;
+    padding-left: 1rem;
+    margin: 1rem 0;
+    color: #aaa;
+    font-style: italic;
 }
 
 /* Mobile: panels centered, no drag */
