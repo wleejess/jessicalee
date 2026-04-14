@@ -137,17 +137,21 @@
             <span class="node-label" style="color:#B8724F;">sar analysis</span>
         </div>
 
-        <!-- Project: Chemystery — Peche -->
-        <div class="node f5" data-panel="chem" style="top:36%;left:80%;">
+
+        <!-- Project: Neutralize — Peche -->
+        <div class="node f3" data-panel="neutralize" style="top:58%;left:46%;">
             <div class="node-ring" style="background:#FAF1EC;border-color:#DEAB94;color:#B8724F;">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/>
-                    <ellipse cx="12" cy="12" rx="10" ry="3.5"/>
-                    <ellipse cx="12" cy="12" rx="10" ry="3.5" transform="rotate(60 12 12)"/>
-                    <ellipse cx="12" cy="12" rx="10" ry="3.5" transform="rotate(120 12 12)"/>
+                    <line x1="12" y1="3" x2="12" y2="21"/>
+                    <line x1="3" y1="21" x2="21" y2="21"/>
+                    <line x1="5" y1="9" x2="19" y2="9"/>
+                    <line x1="5" y1="9" x2="12" y2="3"/>
+                    <line x1="19" y1="9" x2="12" y2="3"/>
+                    <path d="M2 15h6l-3-6z"/>
+                    <path d="M16 15h6l-3-6z"/>
                 </svg>
             </div>
-            <span class="node-label" style="color:#B8724F;">chemystery</span>
+            <span class="node-label" style="color:#B8724F;">neutralize</span>
         </div>
 
         <!-- Experience — Tradewind -->
@@ -191,7 +195,7 @@
 </section>
 
 <!-- ── Bottom-right corner buttons ── -->
-<div id="corner-btns" style="position:fixed;bottom:2rem;right:2rem;z-index:10;display:flex;gap:1rem;align-items:flex-end;">
+<div id="corner-btns" style="position:fixed;bottom:2rem;z-index:10;display:flex;gap:1rem;align-items:flex-end;">
 
     <!-- Palette reference -->
     <div id="palette-btn" class="node f5">
@@ -264,6 +268,28 @@
             <span style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#555;flex:1;">JetBrains Mono</span>
             <span style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#bbb;">labels &amp; code</span>
         </div>
+    </div>
+</div>
+
+<!-- ── Right side panel (info nodes) ── -->
+<div id="side-panel">
+    <div id="side-panel-resize" aria-hidden="true"></div>
+    <div id="side-content"></div>
+</div>
+
+<!-- ── Project fullscreen overlay ── -->
+<div id="project-overlay">
+    <div class="project-overlay-card">
+        <div class="panel-handle" style="cursor:default;">
+            <span id="project-overlay-tag" class="m-tag"></span>
+            <span style="flex:1"></span>
+            <button id="project-overlay-close" class="panel-close" aria-label="Close">
+                <svg width="9" height="9" viewBox="0 0 9 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                    <line x1="1" y1="1" x2="8" y2="8"/><line x1="8" y1="1" x2="1" y2="8"/>
+                </svg>
+            </button>
+        </div>
+        <div id="project-overlay-body" class="panel-body"></div>
     </div>
 </div>
 
