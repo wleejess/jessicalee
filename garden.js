@@ -5,13 +5,13 @@
     if (!svg) return;
 
     const NODE_COLORS = {
-        bio:     '#6BADA8',
-        blog:    '#6BADA8',
-        contact: '#6BADA8',
-        edu:     '#DEAB94',
-        sar:     '#DEAB94',
-        fwca:    '#9BCFC9',
-        chem:    '#9BCFC9',
+        bio:        '#6BADA8',
+        blog:       '#6BADA8',
+        contact:    '#6BADA8',
+        edu:        '#DEAB94',
+        sar:        '#DEAB94',
+        fwca:       '#9BCFC9',
+        neutralize: '#DEAB94',
     };
 
     const clickCounts = {};

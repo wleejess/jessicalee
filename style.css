@@ -1,3 +1,5 @@
+:root { --side-w: 0px; }
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
@@ -5,6 +7,8 @@ body {
     font-family: 'Inter', system-ui, sans-serif;
     color: #1a1a1a;
     overflow-x: hidden;
+    padding-right: var(--side-w);
+    transition: padding-right 0.38s cubic-bezier(0.34, 1, 0.64, 1);
 }
 
 /* ── Canvas ── */
@@ -20,7 +24,8 @@ body {
 /* ── Top nav ── */
 #topnav {
     position: fixed;
-    top: 0; left: 0; right: 0;
+    top: 0; left: 0;
+    right: var(--side-w);
     z-index: 40;
     padding: 1.25rem 2rem;
     display: flex;
@@ -28,6 +33,7 @@ body {
     align-items: flex-start;
     background: linear-gradient(to bottom, rgba(255,252,243,0.92) 60%, transparent);
     pointer-events: none;
+    transition: right 0.38s cubic-bezier(0.34, 1, 0.64, 1);
 }
 #topnav a { pointer-events: all; }
 .nav-link {
@@ -342,10 +348,15 @@ body {
 }
 
 /* ── Palette popover ── */
+#corner-btns {
+    right: calc(2rem + var(--side-w));
+    transition: right 0.38s cubic-bezier(0.34, 1, 0.64, 1);
+}
+
 #palette-popover {
     position: fixed;
     bottom: calc(2rem + 108px);
-    right: 2rem;
+    right: calc(2rem + var(--side-w));
     z-index: 100;
     width: 248px;
     background: #fff;
@@ -356,7 +367,8 @@ body {
     opacity: 0;
     pointer-events: none;
     transform: translateY(8px);
-    transition: opacity 0.18s ease, transform 0.18s ease;
+    transition: right 0.38s cubic-bezier(0.34, 1, 0.64, 1),
+                opacity 0.18s ease, transform 0.18s ease;
 }
 #palette-popover.palette-open {
     opacity: 1;
@@ -418,6 +430,155 @@ body {
     font-style: italic;
 }
 
+/* ── Side Panel ── */
+#side-panel {
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 390px;
+    background: rgba(255,252,243,0.98);
+    border-left: 1px solid rgba(107,173,168,0.12);
+    z-index: 200;
+    transform: translateX(100%);
+    transition: transform 0.38s cubic-bezier(0.34, 1, 0.64, 1),
+                box-shadow 0.38s ease;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-width: 280px;
+    max-width: 640px;
+}
+#side-panel.open {
+    transform: translateX(0);
+    box-shadow: -12px 0 48px rgba(0,0,0,0.06);
+}
+
+/* ── Resize handle ── */
+#side-panel-resize {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    cursor: col-resize;
+    z-index: 1;
+    flex-shrink: 0;
+}
+#side-panel-resize::after {
+    content: '';
+    position: absolute;
+    left: 1px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2px;
+    height: 36px;
+    background: rgba(107,173,168,0.18);
+    border-radius: 99px;
+    transition: background 0.2s;
+}
+#side-panel-resize:hover::after,
+#side-panel-resize:active::after {
+    background: rgba(107,173,168,0.5);
+}
+
+/* ── Side content (sections) ── */
+#side-content {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+#side-content::-webkit-scrollbar { width: 3px; }
+#side-content::-webkit-scrollbar-thumb { background: #e0ded8; border-radius: 99px; }
+
+.side-section {
+    padding: 1.375rem 1.5rem 1.5rem;
+    flex-shrink: 0;
+    animation: panelIn 0.22s cubic-bezier(0.34,1.4,0.64,1) both;
+}
+.side-section + .side-section {
+    border-top: 1px solid #f0f0ea;
+}
+.side-section.exiting {
+    opacity: 0;
+    transition: opacity 0.15s ease;
+}
+
+.side-section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+.side-section .m-title {
+    margin-top: 0.25rem;
+}
+
+/* ── Fullscreen Overlay ── */
+#project-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background: rgba(255,252,243,0.72);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+#project-overlay.open {
+    opacity: 1;
+    pointer-events: all;
+}
+.project-overlay-card {
+    background: #fff;
+    border: 1px solid rgba(107,173,168,0.15);
+    border-radius: 16px;
+    width: min(680px, 100%);
+    max-height: 82vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.09), 0 4px 16px rgba(0,0,0,0.04);
+    transform: scale(0.96) translateY(8px);
+    transition: transform 0.28s cubic-bezier(0.34, 1.2, 0.64, 1);
+}
+#project-overlay.open .project-overlay-card {
+    transform: scale(1) translateY(0);
+}
+#project-overlay-body {
+    overflow-y: auto;
+}
+#project-overlay-body::-webkit-scrollbar { width: 3px; }
+#project-overlay-body::-webkit-scrollbar-thumb { background: #e0ded8; border-radius: 99px; }
+
+/* ── Inline Card ── */
+.inline-card {
+    position: fixed;
+    z-index: 250;
+    max-height: 72vh;
+    background: #fff;
+    border: 1px solid rgba(107,173,168,0.15);
+    border-radius: 14px;
+    box-shadow: 0 12px 52px rgba(0,0,0,0.1), 0 2px 8px rgba(0,0,0,0.04);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform: scale(0);
+    opacity: 0;
+    transition: transform 0.22s cubic-bezier(0.34, 1.4, 0.64, 1),
+                opacity 0.16s ease;
+}
+.inline-card.open {
+    transform: scale(1);
+    opacity: 1;
+}
+
 /* Mobile: panels centered, no drag */
 @media (max-width: 700px) {
     .panel {
@@ -425,6 +586,31 @@ body {
         left: 1rem !important;
         max-height: 60vh;
         resize: none;
+    }
+}
+
+@media (max-width: 700px) {
+    body { padding-right: 0 !important; transition: none; }
+    #topnav { right: 0 !important; transition: none; }
+    #corner-btns { right: 2rem !important; transition: none; }
+    #palette-popover { right: 2rem !important; transition: none; }
+    #side-panel {
+        width: 100% !important;
+        top: auto;
+        height: 60vh;
+        transform: translateY(100%);
+        border-left: none;
+        border-top: 1px solid rgba(107,173,168,0.15);
+        transition: transform 0.38s cubic-bezier(0.34, 1, 0.64, 1);
+    }
+    #side-panel.open {
+        transform: translateY(0);
+        box-shadow: 0 -8px 40px rgba(0,0,0,0.08);
+    }
+    #side-panel-resize { display: none; }
+    .inline-card {
+        width: calc(100% - 2rem) !important;
+        left: 1rem !important;
     }
 }
 

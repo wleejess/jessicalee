@@ -17,10 +17,19 @@ const panels = {
     }
 };
 
+// ── Panel groups ──────────────────────────────────────────
+const INFO_KEYS       = new Set(['bio', 'edu', 'exp', 'contact', 'blog']);
+const FULLSCREEN_KEYS = new Set(['fwca', 'sar', 'neutralize']);
+
+// ── Shared SVG ────────────────────────────────────────────
+const CLOSE_SVG = `
+    <svg width="9" height="9" viewBox="0 0 9 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="1" y1="1" x2="8" y2="8"/><line x1="8" y1="1" x2="1" y2="8"/>
+    </svg>`;
+
 // ── Notes: list view ─────────────────────────────────────
 function renderNotesList(bodyEl, titleEl) {
     titleEl.textContent = notesMeta.title;
-
     const isEmpty = noteEntries.length === 0;
     bodyEl.innerHTML = `
         <p class="m-body">Thoughts on science, software, and the space between — notes I find worth keeping.</p>
@@ -41,7 +50,6 @@ function renderNotesList(bodyEl, titleEl) {
             `).join('')}
         </div>
     `;
-
     bodyEl.querySelectorAll('.note-card').forEach(card => {
         card.addEventListener('mouseenter', () => card.style.background = '#EDF5F4');
         card.addEventListener('mouseleave', () => card.style.background = '#fafaf8');
@@ -52,15 +60,12 @@ function renderNotesList(bodyEl, titleEl) {
 // ── Notes: post view ─────────────────────────────────────
 async function loadNote(slug, bodyEl, titleEl) {
     bodyEl.innerHTML = `<p style="color:#bbb;font-size:0.875rem;margin-top:1rem;font-family:'JetBrains Mono',monospace;">loading...</p>`;
-
     try {
-        const res = await fetch(`notes/${slug}.md`);
+        const res  = await fetch(`notes/${slug}.md`);
         if (!res.ok) throw new Error(`${res.status}`);
-        const md  = await res.text();
-        const html = marked.parse(md);
+        const html = marked.parse(await res.text());
         const entry = noteEntries.find(e => e.slug === slug);
         if (entry) titleEl.textContent = entry.title;
-
         bodyEl.innerHTML = `
             <button class="note-back" style="display:inline-flex;align-items:center;gap:0.4rem;margin-bottom:1.25rem;font-size:0.75rem;font-family:'JetBrains Mono',monospace;color:#4A8C88;background:none;border:none;cursor:pointer;padding:0;letter-spacing:0.04em;">
                 ← all notes
@@ -79,120 +84,139 @@ async function loadNote(slug, bodyEl, titleEl) {
     }
 }
 
-// ── Floating draggable panels ─────────────────────────────
-const openPanels = new Map();
-let zTop = 50;
-let spawnCount = 0;
+// ─────────────────────────────────────────────────────────
+// ── SIDE PANEL ────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────
 
-function bringToFront(el) {
-    el.style.zIndex = ++zTop;
+const sidePanelEl  = document.getElementById('side-panel');
+const sideContentEl = document.getElementById('side-content');
+const sectionMap   = new Map();
+let panelWidth     = 390;
+
+function setSideW(open) {
+    document.documentElement.style.setProperty('--side-w', open ? panelWidth + 'px' : '0px');
 }
 
-function makeDraggable(el) {
-    const handle = el.querySelector('.panel-handle');
-    let sx, sy, ox, oy;
-
-    function startDrag(cx, cy) {
-        const r = el.getBoundingClientRect();
-        ox = r.left; oy = r.top;
-        sx = cx;     sy = cy;
-        el.style.left   = ox + 'px';
-        el.style.top    = oy + 'px';
-        el.style.right  = 'auto';
-        el.style.bottom = 'auto';
-        bringToFront(el);
-    }
-    function moveDrag(cx, cy) {
-        el.style.left = (ox + cx - sx) + 'px';
-        el.style.top  = (oy + cy - sy) + 'px';
-    }
-
-    handle.addEventListener('mousedown', e => {
-        if (e.target.closest('.panel-close')) return;
-        e.preventDefault();
-        startDrag(e.clientX, e.clientY);
-        const mm = e2 => moveDrag(e2.clientX, e2.clientY);
-        const mu = () => {
-            document.removeEventListener('mousemove', mm);
-            document.removeEventListener('mouseup', mu);
-        };
-        document.addEventListener('mousemove', mm);
-        document.addEventListener('mouseup', mu);
-    });
-
-    handle.addEventListener('touchstart', e => {
-        if (e.target.closest('.panel-close')) return;
-        const t = e.touches[0];
-        startDrag(t.clientX, t.clientY);
-        const tm = e2 => { e2.preventDefault(); const t2 = e2.touches[0]; moveDrag(t2.clientX, t2.clientY); };
-        const tu = () => {
-            handle.removeEventListener('touchmove', tm);
-            handle.removeEventListener('touchend', tu);
-        };
-        handle.addEventListener('touchmove', tm, { passive: false });
-        handle.addEventListener('touchend', tu);
-    }, { passive: true });
-}
-
-function openPanel(key) {
-    if (openPanels.has(key)) {
-        bringToFront(openPanels.get(key));
+function openSideSection(key) {
+    if (sectionMap.has(key)) {
+        const existing = sectionMap.get(key);
+        existing.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        existing.style.outline = '2px solid rgba(107,173,168,0.35)';
+        setTimeout(() => existing.style.outline = '', 600);
         return;
     }
 
     const p = panels[key];
     if (!p) return;
 
-    const el = document.createElement('div');
-    el.className = 'panel';
-
-    el.innerHTML = `
-        <div class="panel-handle">
-            <svg class="panel-grip" width="10" height="8" viewBox="0 0 10 8" fill="currentColor">
-                <circle cx="2" cy="2" r="1.2"/><circle cx="5" cy="2" r="1.2"/><circle cx="8" cy="2" r="1.2"/>
-                <circle cx="2" cy="6" r="1.2"/><circle cx="5" cy="6" r="1.2"/><circle cx="8" cy="6" r="1.2"/>
-            </svg>
+    const section = document.createElement('div');
+    section.className = 'side-section';
+    section.dataset.key = key;
+    section.innerHTML = `
+        <div class="side-section-header">
             <span class="m-tag" style="${p.tagStyle}">${p.tag}</span>
             <span style="flex:1"></span>
-            <button class="panel-close" aria-label="Close">
-                <svg width="9" height="9" viewBox="0 0 9 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-                    <line x1="1" y1="1" x2="8" y2="8"/><line x1="8" y1="1" x2="1" y2="8"/>
-                </svg>
-            </button>
+            <button class="panel-close" aria-label="Close">${CLOSE_SVG}</button>
         </div>
-        <div class="panel-body">
-            <h2 class="m-title">${p.title}</h2>
-            ${p.html}
-        </div>
+        <h2 class="m-title">${p.title}</h2>
+        ${p.html}
     `;
 
-    const W   = 755;
-    const off = (spawnCount % 7) * 24;
-    el.style.width  = W + 'px';
-    el.style.left   = (window.innerWidth - W - 24 - off) + 'px';
-    el.style.top    = (76 + off) + 'px';
-    el.style.zIndex = ++zTop;
-    spawnCount++;
-
-    el.querySelector('.panel-close').addEventListener('click', () => {
-        el.remove();
-        openPanels.delete(key);
+    section.querySelector('.panel-close').addEventListener('click', () => {
+        section.classList.add('exiting');
+        setTimeout(() => {
+            section.remove();
+            sectionMap.delete(key);
+            if (sectionMap.size === 0) {
+                sidePanelEl.classList.remove('open');
+                setSideW(false);
+            }
+        }, 150);
     });
 
-    el.addEventListener('mousedown', () => bringToFront(el), true);
+    sideContentEl.appendChild(section);
+    sidePanelEl.classList.add('open');
+    setSideW(true);
+    sectionMap.set(key, section);
 
-    makeDraggable(el);
-    document.body.appendChild(el);
-    openPanels.set(key, el);
-
-    // Run any panel-specific init (e.g. notes list rendering)
     if (p.init) {
-        const bodyEl  = el.querySelector('.panel-body');
-        const titleEl = bodyEl.querySelector('.m-title');
-        p.init(bodyEl, titleEl);
+        // find the title h2 and pass the section body as bodyEl
+        const titleEl = section.querySelector('.m-title');
+        p.init(section, titleEl);
     }
 }
 
+// ── Resize handle ─────────────────────────────────────────
+const resizeEl = document.getElementById('side-panel-resize');
+
+resizeEl.addEventListener('mousedown', e => {
+    e.preventDefault();
+    const startX = e.clientX;
+    const startW = panelWidth;
+
+    document.body.style.cursor    = 'col-resize';
+    document.body.style.userSelect = 'none';
+    // Disable transition while dragging
+    sidePanelEl.style.transition = 'none';
+
+    const onMove = e => {
+        panelWidth = Math.max(280, Math.min(640, startW + (startX - e.clientX)));
+        sidePanelEl.style.width = panelWidth + 'px';
+        setSideW(sidePanelEl.classList.contains('open'));
+    };
+
+    const onUp = () => {
+        document.body.style.cursor    = '';
+        document.body.style.userSelect = '';
+        sidePanelEl.style.transition  = '';
+        document.removeEventListener('mousemove', onMove);
+        document.removeEventListener('mouseup',   onUp);
+    };
+
+    document.addEventListener('mousemove', onMove);
+    document.addEventListener('mouseup',   onUp);
+});
+
+// ─────────────────────────────────────────────────────────
+// ── FULLSCREEN TAKEOVER ───────────────────────────────────
+// ─────────────────────────────────────────────────────────
+
+const overlayEl   = document.getElementById('project-overlay');
+const overlayTag  = document.getElementById('project-overlay-tag');
+const overlayBody = document.getElementById('project-overlay-body');
+
+function openFullscreen(key) {
+    const p = panels[key];
+    if (!p) return;
+
+    overlayTag.textContent   = p.tag;
+    overlayTag.style.cssText = p.tagStyle;
+    overlayBody.innerHTML    = `<h2 class="m-title">${p.title}</h2>${p.html}`;
+    overlayBody.scrollTop    = 0;
+    overlayEl.classList.add('open');
+
+    if (p.init) {
+        p.init(overlayBody, overlayBody.querySelector('.m-title'));
+    }
+}
+
+function closeFullscreen() {
+    overlayEl.classList.remove('open');
+}
+
+overlayEl.addEventListener('click', e => {
+    if (e.target === overlayEl) closeFullscreen();
+});
+document.getElementById('project-overlay-close').addEventListener('click', closeFullscreen);
+
+// ─────────────────────────────────────────────────────────
+// ── DISPATCH ──────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────
+
 document.querySelectorAll('[data-panel]').forEach(el => {
-    el.addEventListener('click', () => openPanel(el.dataset.panel));
+    el.addEventListener('click', () => {
+        const key = el.dataset.panel;
+        if      (INFO_KEYS.has(key))       openSideSection(key);
+        else if (FULLSCREEN_KEYS.has(key)) openFullscreen(key);
+    });
 });

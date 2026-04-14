@@ -58,46 +58,53 @@ export const projectPanels = {
             </a>
         `
     },
-    chem: {
+    neutralize: {
         tag: 'Project',
-        label: 'chemystery',
+        label: 'neutralize',
         tagStyle: 'background:#FAF1EC;color:#B8724F;',
-        title: 'Chemystery Resolver',
+        title: 'Neutralize',
         html: `
             <p class="m-body">
-                A Chrome extension that lets users highlight any IUPAC chemical name in their browser
-                and instantly see a pop-up with the 2D structure, molecular weight, and molecular
-                formula. Born from the exact frustration it solves.
+                A browser extension for Chrome and Firefox that analyzes selected text for
+                rhetorical devices — appeals, loaded language, structural techniques — and
+                offers a neutral rewrite alongside synonym alternatives.
             </p>
-            <p class="m-body" style="color:#bbb;font-style:italic;">Work in progress.</p>
-            <div style="margin-top:1.25rem;padding:1rem 1.125rem;border-radius:10px;background:#fafaf6;border:1px solid #eeede6;">
-                <p style="font-size:0.7rem;font-family:'JetBrains Mono',monospace;color:#bbb;letter-spacing:0.08em;margin-bottom:0.75rem;">Progress</p>
-                <div style="display:flex;flex-direction:column;gap:0.55rem;">
-                    <div style="display:flex;align-items:center;gap:0.625rem;font-size:0.875rem;color:#555;">
-                        <span style="width:16px;height:16px;flex-shrink:0;border-radius:50%;background:#9BCFC9;display:flex;align-items:center;justify-content:center;">
-                            <svg width="9" height="7" viewBox="0 0 9 7" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1,3.5 3,6 8,1"/></svg>
-                        </span>
-                        Detect &amp; capture highlighted text
-                    </div>
-                    <div style="display:flex;align-items:center;gap:0.625rem;font-size:0.875rem;color:#555;">
-                        <span style="width:16px;height:16px;flex-shrink:0;border-radius:50%;background:#9BCFC9;display:flex;align-items:center;justify-content:center;">
-                            <svg width="9" height="7" viewBox="0 0 9 7" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1,3.5 3,6 8,1"/></svg>
-                        </span>
-                        Display pop-up on text selection
-                    </div>
-                    <div style="display:flex;align-items:center;gap:0.625rem;font-size:0.875rem;color:#bbb;">
-                        <span style="width:16px;height:16px;flex-shrink:0;border-radius:50%;background:#eee;display:flex;align-items:center;justify-content:center;">
-                            <svg width="7" height="2" viewBox="0 0 7 2" fill="none" stroke="#ccc" stroke-width="2" stroke-linecap="round"><line x1="0.5" y1="1" x2="6.5" y2="1"/></svg>
-                        </span>
-                        API: chemical name → structure image
-                    </div>
+            <p class="m-body">
+                Highlight 3–5 sentences on any article or browser-rendered PDF. Neutralize
+                color-codes seven rhetorical categories, explains each technique on hover,
+                and generates a journalistic neutral rewrite. Pure opinions are flagged;
+                plain factual statements are identified.
+            </p>
+            <div style="margin-top:1rem;padding:0.875rem 1rem;border-radius:10px;background:#fafaf6;border:1px solid #eeede6;">
+                <p style="font-size:0.7rem;font-family:'JetBrains Mono',monospace;color:#bbb;letter-spacing:0.08em;margin-bottom:0.625rem;">7 rhetorical categories</p>
+                <div style="display:flex;flex-direction:column;gap:0.35rem;">
+                    <div style="display:flex;align-items:center;gap:0.625rem;font-size:0.8125rem;color:#5a5a5a;"><span style="width:10px;height:10px;background:#E8B86D;flex-shrink:0;border-radius:1px;"></span>Amplification</div>
+                    <div style="display:flex;align-items:center;gap:0.625rem;font-size:0.8125rem;color:#5a5a5a;"><span style="width:10px;height:10px;background:#7BAFD4;flex-shrink:0;border-radius:1px;"></span>Emotional appeal</div>
+                    <div style="display:flex;align-items:center;gap:0.625rem;font-size:0.8125rem;color:#5a5a5a;"><span style="width:10px;height:10px;background:#C48BB8;flex-shrink:0;border-radius:1px;"></span>Loaded language</div>
+                    <div style="display:flex;align-items:center;gap:0.625rem;font-size:0.8125rem;color:#5a5a5a;"><span style="width:10px;height:10px;background:#E8906A;flex-shrink:0;border-radius:1px;"></span>Call to action</div>
+                    <div style="display:flex;align-items:center;gap:0.625rem;font-size:0.8125rem;color:#5a5a5a;"><span style="width:10px;height:10px;background:#A88CC8;flex-shrink:0;border-radius:1px;"></span>Presupposition</div>
+                    <div style="display:flex;align-items:center;gap:0.625rem;font-size:0.8125rem;color:#5a5a5a;"><span style="width:10px;height:10px;background:#90B878;flex-shrink:0;border-radius:1px;"></span>Hedging</div>
+                    <div style="display:flex;align-items:center;gap:0.625rem;font-size:0.8125rem;color:#5a5a5a;"><span style="width:10px;height:10px;background:#6ABFAA;flex-shrink:0;border-radius:1px;"></span>Resolved · neutral rewrite</div>
                 </div>
             </div>
             <div class="m-tags">
-                <span class="m-tag" style="background:#FAF1EC;color:#B8724F;">JavaScript</span>
-                <span class="m-tag" style="background:#FAF1EC;color:#B8724F;">Chrome Extension</span>
-                <span class="m-tag" style="background:#FAF1EC;color:#B8724F;">HTML/CSS</span>
+                <span class="m-tag" style="background:#FAF1EC;color:#B8724F;">React · TypeScript</span>
+                <span class="m-tag" style="background:#FAF1EC;color:#B8724F;">Chrome MV3</span>
+                <span class="m-tag" style="background:#FAF1EC;color:#B8724F;">Firefox MV2</span>
+                <span class="m-tag" style="background:#FAF1EC;color:#B8724F;">Claude API</span>
+                <span class="m-tag" style="background:#FAF1EC;color:#B8724F;">Vite · Turborepo</span>
             </div>
+            <hr class="m-divider"/>
+            <a href="neutralize.html" target="_blank" rel="noopener"
+               style="display:block;font-size:0.8125rem;color:#B8724F;text-decoration:none;line-height:1.6;margin-bottom:0.35rem;"
+               onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+                Full case study ↗
+            </a>
+            <a href="https://github.com/wleejess/neutralize" target="_blank" rel="noopener"
+               style="display:block;font-size:0.8125rem;color:#B8724F;text-decoration:none;line-height:1.6;"
+               onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+                View on GitHub ↗
+            </a>
         `
     }
 };

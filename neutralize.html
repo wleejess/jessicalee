@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Neutralize — Jessica Lee</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream:     #FAF6F0;
+  --cream-2:   #F0E8D8;
+  --cream-3:   #E4D8C4;
+  --cream-bdr: #C8B8A0;
+  --muted:     #8A7860;
+  --text:      #4A3828;
+  --title:     #2A1810;
+  --mauve:     #2A1F2E;
+  --mauve-2:   #3A2A40;
+  --mauve-t:   #C8B8D8;
+
+  --gold:      #E8B86D;
+  --blue-m:    #7BAFD4;
+  --mauve-a:   #C48BB8;
+  --orange:    #E8906A;
+  --teal:      #6ABFAA;
+  --purple-s:  #A88CC8;
+  --sage:      #90B878;
+
+  --gold-bg:   #FFF0CC;   --gold-t:   #7A5000;
+  --blue-bg:   #D8EAF8;   --blue-t:   #1A4888;
+  --mauve-bg:  #F0DCEA;   --mauve-t2: #6A2068;
+  --orange-bg: #FFE8D4;   --orange-t: #8A3800;
+  --teal-bg:   #D4F0E4;   --teal-t:   #1A6040;
+  --purple-bg: #EAE0F8;   --purple-t: #4A1880;
+  --sage-bg:   #E0ECD8;   --sage-t:   #2A4818;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--text);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.75;
+  overflow-x: hidden;
+}
+
+/* ── TYPOGRAPHY ─────────────────────────────── */
+h1,h2,h3,h4 { font-family: 'IBM Plex Mono', monospace; font-weight: 700; color: var(--title); }
+.mono { font-family: 'IBM Plex Mono', monospace; }
+.label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ── NAV ─────────────────────────────────────── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: var(--cream);
+  border-bottom: 1px solid var(--cream-bdr);
+  padding: 14px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px; font-weight: 700;
+  color: var(--title); text-decoration: none; letter-spacing: 1px;
+}
+.nav-links { display: flex; gap: 32px; }
+.nav-links a {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px; letter-spacing: 1px;
+  color: var(--muted); text-decoration: none;
+  transition: color .2s;
+}
+.nav-links a:hover { color: var(--title); }
+
+/* ── HERO ─────────────────────────────────────── */
+.hero {
+  margin-top: 57px;
+  background: var(--mauve);
+  padding: 80px 0 0;
+  overflow: hidden;
+  position: relative;
+}
+.hero-grid {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(106,90,120,.18) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(106,90,120,.18) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+.hero-inner {
+  max-width: 960px; margin: 0 auto;
+  padding: 0 48px 60px;
+  position: relative;
+}
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--mauve-2);
+  border: 1px solid rgba(200,184,216,.2);
+  padding: 5px 14px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px; letter-spacing: 2px;
+  color: var(--mauve-t);
+  margin-bottom: 28px;
+}
+.hero-tag-dot { width: 6px; height: 6px; background: var(--teal); }
+.hero h1 {
+  font-size: clamp(42px, 6vw, 72px);
+  color: #E8DDF0;
+  letter-spacing: -1px;
+  line-height: 1.05;
+  margin-bottom: 20px;
+}
+.hero-sub {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 19px; font-style: italic;
+  color: rgba(200,184,216,.75);
+  max-width: 560px;
+  margin-bottom: 36px;
+  line-height: 1.6;
+}
+.hero-meta {
+  display: flex; gap: 32px; flex-wrap: wrap;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px; letter-spacing: 1px;
+  color: rgba(160,144,176,.7);
+  padding-top: 28px;
+  border-top: 1px solid rgba(106,84,120,.4);
+}
+.hero-meta span { color: var(--mauve-t); }
+
+/* banner strip at bottom of hero */
+.hero-banner {
+  background: var(--mauve-2);
+  border-top: 1px solid rgba(106,84,120,.4);
+  padding: 20px 48px;
+  display: flex; gap: 48px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px; letter-spacing: 2px;
+  color: rgba(160,144,176,.5);
+  overflow: hidden; white-space: nowrap;
+}
+.hero-banner strong { color: var(--teal); }
+
+/* ── SECTION WRAPPER ─────────────────────────── */
+.section {
+  max-width: 760px; margin: 0 auto;
+  padding: 80px 48px;
+}
+.section + .section { padding-top: 0; }
+.section-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px; letter-spacing: 3px;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: flex; align-items: center; gap: 12px;
+}
+.section-label::after {
+  content: '';
+  flex: 1; height: 1px;
+  background: var(--cream-bdr);
+}
+.section h2 {
+  font-size: 28px; letter-spacing: -0.5px;
+  margin-bottom: 20px; line-height: 1.2;
+}
+.section p { margin-bottom: 16px; color: var(--text); }
+.section p:last-child { margin-bottom: 0; }
+
+/* ── CALLOUT ──────────────────────────────────── */
+.callout {
+  background: var(--cream-2);
+  border-left: 3px solid var(--orange);
+  padding: 20px 24px;
+  margin: 32px 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-style: italic;
+  color: var(--title);
+}
+.callout cite {
+  display: block; margin-top: 8px;
+  font-style: normal;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px; letter-spacing: 1px;
+  color: var(--muted);
+}
+
+/* ── DEMO BLOCK ───────────────────────────────── */
+.demo-block {
+  background: var(--mauve);
+  border-radius: 0;
+  padding: 28px 32px;
+  margin: 32px 0;
+  position: relative;
+}
+.demo-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px; letter-spacing: 2px;
+  color: rgba(160,144,176,.5);
+  margin-bottom: 14px;
+}
+.demo-text {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 16px; line-height: 1.85;
+  color: #C8B8D8;
+}
+.hl {
+  padding: 1px 4px;
+  border-radius: 0;
+}
+.hl-amp   { background:#3A2808; color:#E8B86D; text-decoration:underline 2px solid #E8B86D; }
+.hl-load  { background:#301828; color:#C48BB8; text-decoration:underline 2px dotted #C48BB8; }
+.hl-pre   { background:#281630; color:#A88CC8; text-decoration:underline 2px solid #A88CC8; }
+.hl-emo   { background:#1C2A38; color:#7BAFD4; }
+.hl-cta   { background:#301E14; color:#E8906A; text-decoration:underline 3px double #E8906A; }
+.demo-resolved {
+  margin-top: 20px;
+  padding: 16px 20px;
+  background: rgba(20,48,40,.7);
+  border: 1px solid rgba(106,191,170,.3);
+}
+.demo-resolved-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px; letter-spacing: 2px;
+  color: var(--teal); margin-bottom: 8px;
+}
+.demo-resolved-text {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-style: italic;
+  color: rgba(106,191,170,.85); line-height: 1.7;
+}
+.demo-arrow { color: rgba(106,191,170,.4); margin: 12px 0; font-family: monospace; }
+
+/* ── PROCESS STEPS ────────────────────────────── */
+.process-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  margin: 32px 0;
+}
+.process-step {
+  background: var(--cream-2);
+  padding: 24px;
+}
+.process-step:nth-child(odd) { background: var(--cream-2); }
+.process-step:nth-child(even) { background: var(--cream-3); }
+.step-num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px; letter-spacing: 2px;
+  color: var(--muted); margin-bottom: 8px;
+}
+.step-title {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px; font-weight: 700;
+  color: var(--title); margin-bottom: 8px;
+}
+.step-body { font-size: 14px; line-height: 1.6; color: var(--text); }
+
+/* ── PALETTE STRIP ────────────────────────────── */
+.palette-strip { display: flex; gap: 0; margin: 24px 0; }
+.pal-item { flex: 1; }
+.pal-swatch { height: 48px; }
+.pal-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 8px; letter-spacing: .5px;
+  padding: 4px 4px 0;
+  color: var(--muted);
+}
+
+/* ── DECISIONS TABLE ──────────────────────────── */
+.decisions { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 14px; }
+.decisions th {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px; letter-spacing: 2px;
+  text-align: left; padding: 8px 12px;
+  border-bottom: 2px solid var(--cream-bdr);
+  color: var(--muted);
+}
+.decisions td { padding: 12px; border-bottom: 1px solid var(--cream-3); vertical-align: top; }
+.decisions tr:last-child td { border-bottom: none; }
+.decisions td:first-child {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px; font-weight: 700;
+  color: var(--title); white-space: nowrap;
+}
+
+/* ── RHETORIC LEGEND ──────────────────────────── */
+.legend { display: flex; flex-direction: column; gap: 2px; margin: 24px 0; }
+.legend-row {
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px 14px;
+  font-size: 14px;
+}
+.legend-swatch { width: 32px; height: 14px; flex-shrink: 0; }
+.legend-name {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px; font-weight: 700;
+  min-width: 140px; color: var(--title);
+}
+.legend-desc { color: var(--muted); font-size: 13px; }
+
+/* ── OUTCOME STATS ────────────────────────────── */
+.stats-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; margin: 32px 0; }
+.stat-card {
+  background: var(--mauve);
+  padding: 24px 20px;
+  text-align: center;
+}
+.stat-val {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 32px; font-weight: 700;
+  color: #E8DDF0; display: block; margin-bottom: 6px;
+}
+.stat-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px; letter-spacing: 2px;
+  color: rgba(160,144,176,.6);
+}
+
+/* ── SKILLS TAGS ──────────────────────────────── */
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0; }
+.tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px; letter-spacing: 1px;
+  padding: 5px 12px;
+  background: var(--cream-2);
+  border: 1px solid var(--cream-bdr);
+  color: var(--muted);
+}
+.tag.highlight { background: var(--mauve); color: var(--mauve-t); border-color: transparent; }
+
+/* ── FOOTER ───────────────────────────────────── */
+footer {
+  background: var(--mauve);
+  padding: 48px;
+  text-align: center;
+}
+.footer-name {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 18px; font-weight: 700;
+  color: #E8DDF0; margin-bottom: 8px;
+}
+.footer-links { display: flex; justify-content: center; gap: 32px; margin-top: 20px; }
+.footer-links a {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px; letter-spacing: 2px;
+  color: rgba(160,144,176,.6);
+  text-decoration: none;
+}
+.footer-links a:hover { color: var(--teal); }
+
+/* ── DIVIDER ──────────────────────────────────── */
+.divider {
+  max-width: 760px; margin: 0 auto;
+  padding: 0 48px;
+  border: none; border-top: 1px solid var(--cream-bdr);
+}
+
+/* ── HIGHLIGHT INLINE ─────────────────────────── */
+mark {
+  background: var(--gold-bg); color: var(--gold-t);
+  padding: 0 3px; font-style: normal;
+}
+
+@media (max-width: 640px) {
+  nav { padding: 14px 20px; }
+  .section { padding: 48px 24px; }
+  .hero-inner { padding: 0 24px 48px; }
+  .hero-banner { padding: 16px 24px; }
+  .process-grid { grid-template-columns: 1fr; }
+  .stats-row { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 36px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://jessicalee.me" class="nav-logo">Jessica Lee</a>
+  <div class="nav-links">
+    <a href="https://jessicalee.me/#work">Work</a>
+    <a href="https://jessicalee.me/#about">About</a>
+    <a href="https://github.com/jessicalee" target="_blank">GitHub</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-tag"><div class="hero-tag-dot"></div>Case Study · Browser Extension</div>
+    <h1>Neutralize</h1>
+    <p class="hero-sub">An AI-powered browser extension that detects rhetorical devices in webpages and PDFs, and rewrites them in neutral language.</p>
+    <div class="hero-meta">
+      <div>ROLE <span>Solo · Engineering + Design + PM</span></div>
+      <div>STACK <span>Chrome MV3 · Firefox MV2 · Claude API · React · TypeScript · PDF.js</span></div>
+      <div>TIMELINE <span>~2 weeks, casual</span></div>
+      <div>STATUS <span style="color:var(--teal)">◈ Active</span></div>
+    </div>
+  </div>
+  <div class="hero-banner">
+    <span>NTZ-CORE · v2.5.0</span>
+    <span>WEBPAGES + PDF SUPPORT</span>
+    <span>WCAG AA · CVD-OPTIMIZED</span>
+    <span>7 RHETORICAL CATEGORIES</span>
+    <span>HIGHLIGHT · REWRITE · RESOLVED</span>
+    <span><strong>BIAS: NONE</strong></span>
+    <span>SIGNAL: ACTIVE</span>
+    <span>BUILD: VERIFIED</span>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="section">
+  <div class="section-label">01 — The problem</div>
+  <h2>We read persuasive language constantly. Most of it goes unnoticed.</h2>
+  <p>News articles, social media posts, political coverage, corporate press releases, research PDFs — they're full of rhetorical devices designed to shape how we think before we've had a chance to evaluate the facts. Loaded language, emotional appeals, false presuppositions, artificial urgency.</p>
+  <p>The problem isn't that persuasion exists. It's that most readers don't have a way to see it happening in real time, on the page or document they're already reading.</p>
+
+  <div class="callout">
+    "The radical regime has <em>completely</em> failed its citizens — and <em>obviously</em>, any reasonable person can see this <em>devastating</em> policy must be stopped now."
+    <cite>Every article, every day — annotated below</cite>
+  </div>
+
+  <p>I wanted to build something that turns critical thinking from a passive skill into an active one — a tool that sits in your browser and shows you the language as it's working on you, whether that's a news article or a PDF you've opened inline.</p>
+</section>
+
+<hr class="divider"/>
+
+<!-- DEMO -->
+<section class="section">
+  <div class="section-label">02 — How it works</div>
+  <h2>Highlight. Analyze. Rewrite.</h2>
+  <p>Select any sentence on a webpage or in a browser-rendered PDF. Neutralize identifies rhetorical devices with color-coded highlights, explains each one, and generates a neutral rewrite.</p>
+
+  <div class="demo-block">
+    <div class="demo-label">INPUT — ORIGINAL TEXT</div>
+    <div class="demo-text">
+      The <span class="hl hl-load">radical regime</span> has <span class="hl hl-amp">completely</span> failed its citizens.
+      <span class="hl hl-pre">Obviously</span>, any <span class="hl hl-emo">reasonable person</span> can see this
+      <span class="hl hl-amp">devastating</span> policy <span class="hl hl-cta">must be stopped now</span>.
+    </div>
+    <div class="demo-arrow">↓ neutralized</div>
+    <div class="demo-resolved">
+      <div class="demo-resolved-label">RESOLVED · NEUTRAL REWRITE</div>
+      <div class="demo-resolved-text">The government has faced significant criticism over this policy. Analysts are divided on its effects, and some argue it should be revised or repealed.</div>
+    </div>
+  </div>
+
+  <div class="legend">
+    <div class="legend-row" style="background:var(--gold-bg)">
+      <div class="legend-swatch" style="background:#E8B86D"></div>
+      <div class="legend-name">Amplification</div>
+      <div class="legend-desc">Intensifiers that exaggerate — <em>completely, devastating, unprecedented</em></div>
+    </div>
+    <div class="legend-row" style="background:var(--blue-bg)">
+      <div class="legend-swatch" style="background:#7BAFD4"></div>
+      <div class="legend-name">Emotion</div>
+      <div class="legend-desc">Appeals to feeling over reason — <em>heartbreaking, outrageous</em></div>
+    </div>
+    <div class="legend-row" style="background:var(--mauve-bg)">
+      <div class="legend-swatch" style="background:#C48BB8"></div>
+      <div class="legend-name">Loaded language</div>
+      <div class="legend-desc">Words chosen for connotation — <em>regime, radical, invasion</em></div>
+    </div>
+    <div class="legend-row" style="background:var(--orange-bg)">
+      <div class="legend-swatch" style="background:#E8906A"></div>
+      <div class="legend-name">Call to action</div>
+      <div class="legend-desc">Urgency framing — <em>must, act now, cannot wait</em></div>
+    </div>
+    <div class="legend-row" style="background:var(--purple-bg)">
+      <div class="legend-swatch" style="background:#A88CC8"></div>
+      <div class="legend-name">Presupposition</div>
+      <div class="legend-desc">Assumes agreement — <em>obviously, as everyone knows</em></div>
+    </div>
+    <div class="legend-row" style="background:var(--sage-bg)">
+      <div class="legend-swatch" style="background:#90B878"></div>
+      <div class="legend-name">Hedging</div>
+      <div class="legend-desc">Vague attribution — <em>some say, experts claim, many believe</em></div>
+    </div>
+    <div class="legend-row" style="background:var(--teal-bg)">
+      <div class="legend-swatch" style="background:#6ABFAA"></div>
+      <div class="legend-name">Resolved</div>
+      <div class="legend-desc">Neutralized output — bias removed</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- PROCESS -->
+<section class="section">
+  <div class="section-label">03 — Process</div>
+  <h2>From idea to shipped in ~2 weeks.</h2>
+  <p>I wore every hat on this project — defining the problem, designing the system, building the extension, and iterating on the UI. This was a casual side build, leaning heavily on Claude as a collaborator throughout: prompt engineering, icon design, the accessibility audit, even this case study. Here's how it came together.</p>
+
+  <div class="process-grid">
+    <div class="process-step">
+      <div class="step-num">DAY 1–3</div>
+      <div class="step-title">Research + scoping</div>
+      <div class="step-body">Mapped the rhetorical device taxonomy. Tested Claude API prompts for device detection. Defined the 7 categories based on what was reliably detectable and meaningfully distinct.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">DAY 3–5</div>
+      <div class="step-title">Extension architecture</div>
+      <div class="step-body">Set up Chrome MV3 manifest, content script for DOM injection, background service worker for API calls. Kept the extension dependency-free — no frameworks, no bundler complexity.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">DAY 5–8</div>
+      <div class="step-title">Design system</div>
+      <div class="step-body">Built a full color token system from scratch. Ran CVD simulation across 3 colorblindness types. Discovered pure color alone can't separate 7 categories — added secondary underline cues for WCAG 1.4.1.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">DAY 8–10</div>
+      <div class="step-title">Palette evolution</div>
+      <div class="step-body">Original palette was too cyberpunk — cold, neon, high-contrast. Shifted to warm mauve + cream to match the product's intent: gentle, analytical, inviting critical thinking rather than alarming.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">DAY 10–12</div>
+      <div class="step-title">Prompt engineering</div>
+      <div class="step-body">Iterated on the Claude prompt to reliably return structured JSON with device classifications, confidence scores, and neutral rewrites. Balanced sensitivity (catching devices) with specificity (avoiding false positives).</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">DAY 12–14</div>
+      <div class="step-title">Polish + ship</div>
+      <div class="step-body">Icon design iterations, accessibility audit, README, and brand assets. Added explanation panel to the popup showing the author's likely intent — not just what's flagged but why it matters.</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- DESIGN DECISIONS -->
+<section class="section">
+  <div class="section-label">04 — Design decisions</div>
+  <h2>The choices that shaped the product.</h2>
+
+  <table class="decisions">
+    <thead>
+      <tr><th>Decision</th><th>Options considered</th><th>What I chose and why</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Color system</td>
+        <td>Single accent, rainbow, semantic only</td>
+        <td>7 distinct hues + secondary underline cues. Color alone fails colorblind users — the underlines make each category distinguishable without it.</td>
+      </tr>
+      <tr>
+        <td>Dark palette</td>
+        <td>Pure black, cool dark gray, navy, warm mauve</td>
+        <td>Warm mauve <mark>#2A1F2E</mark>. Cold palettes felt like surveillance tools. Warm tones encourage reading, not alarming.</td>
+      </tr>
+      <tr>
+        <td>AI model</td>
+        <td>GPT-4o, Gemini, Claude</td>
+        <td>Claude Haiku — fast, cost-efficient, and more than capable of structured JSON output with strong rhetorical framing in context.</td>
+      </tr>
+      <tr>
+        <td>Extension scope</td>
+        <td>Full-page auto-scan vs. highlight-to-analyze</td>
+        <td>Highlight-to-analyze. Grounded in Google's <a href="https://pair.withgoogle.com/guidebook/patterns" target="_blank" style="color:var(--orange-t);text-decoration:underline">PAIR Guidebook</a> principle on user agency: when stakes are higher, user control should be foregrounded, not optional. Auto-scanning everything would feel paternalistic — the user should decide what to examine and when.</td>
+      </tr>
+      <tr>
+        <td>Rewrite tone</td>
+        <td>Purely neutral, slightly formal, journalistic</td>
+        <td>Journalistic neutral — factual, clear, no implied judgment in the rewrite itself.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<hr class="divider"/>
+
+<!-- WHAT I LEARNED -->
+<section class="section">
+  <div class="section-label">05 — What I learned</div>
+  <h2>What shipping fast with AI actually looks like.</h2>
+  <p>This was a casual ~2-week build, and the speed was only possible because I used Claude as an active collaborator throughout — not just for the extension logic, but for the accessibility audit, icon design iterations, color system validation, and even the README. That changed how I think about AI tools: the ceiling isn't "can it write code," it's "how well can you direct it."</p>
+  <p><strong>On AI product design:</strong> The highlight-to-analyze interaction wasn't just a UX convenience — it was a deliberate design decision rooted in Google's <a href="https://pair.withgoogle.com/guidebook/patterns" target="_blank" style="color:var(--orange-t)">PAIR Guidebook</a> on human-centered AI. The guidebook distinguishes between low-stakes automated flows (content recommendations) and higher-stakes ones where user control should be foregrounded. Rhetorical analysis sits in the latter category — it's an invitation to think critically, not a verdict handed down automatically. The user retains full agency over what they investigate and when.</p>
+  <p><strong>On prompt engineering:</strong> The hardest part isn't getting good output once — it's making it consistent across wildly different input types. Political speech, corporate PR, and sports journalism all use rhetoric very differently. The prompt needed to understand context, not just pattern-match keywords.</p>
+  <p><strong>On accessibility:</strong> I ran a proper CVD simulation using Machado 2009 matrices and discovered that <mark>with 7 categories across 3 colorblindness types, it's mathematically impossible to separate all pairs with color alone</mark>. This was humbling — and led to the underline cue system which ended up making the UI richer anyway.</p>
+  <p><strong>On product tone:</strong> The first palette was too aggressive. Bright neon highlights on a dark HUD-style background made the tool feel like it was flagging dangerous content rather than inviting reflection. Shifting to warm mauve took one conversation and an afternoon — that kind of fast design iteration is where AI tools genuinely shine.</p>
+
+  <div class="tags">
+    <div class="tag highlight">Chrome + Firefox Extension</div>
+    <div class="tag highlight">Claude API</div>
+    <div class="tag highlight">Prompt Engineering</div>
+    <div class="tag highlight">Human-Centered AI (PAIR)</div>
+    <div class="tag highlight">Design Systems</div>
+    <div class="tag highlight">WCAG Accessibility</div>
+    <div class="tag highlight">CVD Color Simulation</div>
+    <div class="tag">CSS Custom Properties</div>
+    <div class="tag">React · TypeScript</div>
+    <div class="tag">Product Management</div>
+    <div class="tag">Brand Design</div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- OUTCOMES -->
+<section class="section">
+  <div class="section-label">06 — Outcomes</div>
+  <h2>Shipped. Open source. Ongoing.</h2>
+
+  <div class="stats-row">
+    <div class="stat-card">
+      <span class="stat-val">7</span>
+      <span class="stat-label">Rhetorical categories</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-val">14</span>
+      <span class="stat-label">Icon + asset exports</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-val">AA</span>
+      <span class="stat-label">WCAG contrast rating</span>
+    </div>
+  </div>
+
+  <p>Neutralize works on webpages and browser-rendered PDFs — useful for research papers, policy documents, and press releases that open inline. The design system — color tokens, icon set, component library — is fully documented and reusable.</p>
+  <p>Next: severity scoring per rhetorical device, and a batch mode for analyzing full articles.</p>
+
+  <div style="display:flex;gap:16px;margin-top:32px;flex-wrap:wrap">
+    <a href="https://github.com/jessicalee/neutralize" target="_blank" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:2px;padding:11px 22px;background:var(--mauve);color:#E8DDF0;text-decoration:none;border:1px solid rgba(200,184,216,.2)">VIEW ON GITHUB →</a>
+    <a href="https://jessicalee.me/#work" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:2px;padding:11px 22px;background:transparent;color:var(--muted);text-decoration:none;border:1px solid var(--cream-bdr)">← ALL PROJECTS</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-name">Jessica Lee</div>
+  <div class="label" style="color:rgba(160,144,176,.4);margin-top:4px">Software Engineer · AI Tools · Product Design</div>
+  <div class="footer-links">
+    <a href="https://jessicalee.me">jessicalee.me</a>
+    <a href="https://github.com/jessicalee" target="_blank">GitHub</a>
+    <a href="https://linkedin.com/in/jessicalee" target="_blank">LinkedIn</a>
+  </div>
+</footer>
+
+</body>
+</html>
