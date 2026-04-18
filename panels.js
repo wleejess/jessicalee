@@ -99,6 +99,7 @@ function setSideW(open) {
 
 function openSideSection(key, dir = 'right') {
     sidePanelEl.classList.toggle('side-panel-left', dir === 'left');
+    void sidePanelEl.offsetWidth; // force reflow so transform origin is painted before open transition
 
     if (sectionMap.has(key)) {
         const existing = sectionMap.get(key);

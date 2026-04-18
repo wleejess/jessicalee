@@ -46,13 +46,12 @@ export const infoPanels = {
                     </div>
                     <p style="font-size:1.0625rem;font-weight:400;color:#1a1a1a;margin-top:0.3rem;">Software Engineer, Solution Engineering</p>
                     <p style="font-size:0.8rem;color:#aaa;margin-top:0.125rem;">Full-time &middot; Remote</p>
-                    <p class="m-body" style="margin-top:0.625rem;">
-                        Led development of an internal operations platform serving 200+ users across device lifecycle management and patient processing, built on .NET/Blazor, MongoDB Atlas, and AWS with HIPAA-adjacent security controls.
-                    </p>
                     <ul style="margin-top:0.625rem;padding-left:1.1rem;display:flex;flex-direction:column;gap:0.4rem;">
-                        <li style="font-size:0.875rem;color:#5a5a5a;line-height:1.65;">Architected enterprise security infrastructure with Auth0 RBAC, JWT authorization, AWS VPC peering, and TLS encryption</li>
-                        <li style="font-size:0.875rem;color:#5a5a5a;line-height:1.65;">Implemented Databricks dashboards monitoring 5K+ IoT devices, cutting mean time to resolution by 40%</li>
-                        <li style="font-size:0.875rem;color:#5a5a5a;line-height:1.65;">Designed audit log framework with MongoDB schema and indexing enabling sub-second retrieval across documents</li>
+                        <li style="font-size:0.875rem;color:#5a5a5a;line-height:1.65;">Built full-stack internal operations platform using .NET/Blazor, MongoDB Atlas, and AWS, serving 200+ users across device lifecycle management and analytics — reducing manual workflows by 70%</li>
+                        <li style="font-size:0.875rem;color:#5a5a5a;line-height:1.65;">Engineered enterprise security infrastructure implementing Auth0 RBAC, JWT middleware, AWS VPC peering, TLS encryption, and Cloudflare WAF/DDoS protection to enforce HIPAA-adjacent controls</li>
+                        <li style="font-size:0.875rem;color:#5a5a5a;line-height:1.65;">Implemented CI/CD pipelines using Terraform, AWS ECS, and ECR to automate build, test, and deployment workflows, reducing release cycle time from 2 weeks to 3 days and enabling zero-downtime deployments with automated rollback capabilities</li>
+                        <li style="font-size:0.875rem;color:#5a5a5a;line-height:1.65;">Established audit log framework with MongoDB schema and indexing strategy that enables sub-second retrieval across millions of documents; developed bulk processing pipeline to reduce batch operation time by 33%</li>
+                        <li style="font-size:0.875rem;color:#5a5a5a;line-height:1.65;">Built Databricks dashboards to monitor device health metrics and system performance across 5K+ active IoT devices, enabling real-time alerting on firmware issues and reducing mean time to resolution by 40%</li>
                     </ul>
                     <div class="m-tags" style="margin-top:0.875rem;">
                         <span class="m-tag" style="background:#EDF5F4;color:#4A8C88;">.NET</span>
@@ -72,13 +71,8 @@ export const infoPanels = {
                     <p style="font-size:1.0625rem;font-weight:400;color:#1a1a1a;margin-top:0.3rem;">Project Manager</p>
                     <p style="font-size:0.8rem;color:#aaa;margin-top:0.125rem;">Full-time &middot; Hybrid</p>
                     <p class="m-body" style="margin-top:0.625rem;">
-                        Drove product adoption across a 1,500+ user base by leading usability studies, analyzing user behavior data, and bridging engineering and business stakeholders to translate feedback into high-impact features.
+                        Drove product adoption to 90% across 1,500+ users by leading usability studies, analyzing user behavior data, and collaborating with engineering teams to prioritize high-impact UI/UX improvements and feature enhancements.
                     </p>
-                    <ul style="margin-top:0.625rem;padding-left:1.1rem;display:flex;flex-direction:column;gap:0.4rem;">
-                        <li style="font-size:0.875rem;color:#5a5a5a;line-height:1.65;">Achieved 90% product adoption through data-driven UI/UX enhancements and feature prioritization</li>
-                        <li style="font-size:0.875rem;color:#5a5a5a;line-height:1.65;">Reduced average ticket resolution time by 22% via detailed technical specifications with reproduction steps</li>
-                        <li style="font-size:0.875rem;color:#5a5a5a;line-height:1.65;">Improved user satisfaction by 30% through systematic analysis of system telemetry and behavior patterns</li>
-                    </ul>
                     <div class="m-tags" style="margin-top:0.875rem;">
                         <span class="m-tag" style="background:#EDF5F4;color:#4A8C88;">Product Management</span>
                         <span class="m-tag" style="background:#EDF5F4;color:#4A8C88;">UX/UI</span>
@@ -90,16 +84,13 @@ export const infoPanels = {
                 <div class="m-edu-item" style="border-color:#6BADA8;opacity:0.75;">
                     <div style="display:flex;align-items:baseline;justify-content:space-between;gap:0.5rem;flex-wrap:wrap;">
                         <p style="font-size:0.7rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:#4A8C88;font-family:'JetBrains Mono',monospace;">Vertex Pharmaceuticals</p>
-                        <p style="font-size:0.7rem;color:#bbb;font-family:'JetBrains Mono',monospace;">Sep 2019 – Apr 2021</p>
+                        <p style="font-size:0.7rem;color:#bbb;font-family:'JetBrains Mono',monospace;">Apr 2019 – Apr 2021</p>
                     </div>
                     <p style="font-size:1.0625rem;font-weight:400;color:#1a1a1a;margin-top:0.3rem;">Research Associate</p>
                     <p style="font-size:0.8rem;color:#aaa;margin-top:0.125rem;">Contract &middot; San Diego, CA</p>
-                    <p class="m-body" style="margin-top:0.625rem;">
-                        Developed automated systems for high-throughput experimentation using nanoscale synthesis, building Python-based ETL pipelines to process and analyze large-scale screening data for drug discovery programs.
-                    </p>
                     <ul style="margin-top:0.625rem;padding-left:1.1rem;display:flex;flex-direction:column;gap:0.4rem;">
-                        <li style="font-size:0.875rem;color:#5a5a5a;line-height:1.65;">Engineered Python ETL pipelines automating integration of 100K+ daily data points, improving hit identification accuracy by 35%</li>
-                        <li style="font-size:0.875rem;color:#5a5a5a;line-height:1.65;">Reduced data processing time by 50% and eliminated manual entry errors through end-to-end pipeline automation</li>
+                        <li style="font-size:0.875rem;color:#5a5a5a;line-height:1.65;">Developed an automated system for high-throughput experimentation using nanoscale synthesis, enabling rapid screening at scale</li>
+                        <li style="font-size:0.875rem;color:#5a5a5a;line-height:1.65;">Engineered Python-based ETL pipelines to automate data integration and transformation from high-throughput screening assays, processing 100K+ data points daily and improving hit identification accuracy by 35%</li>
                     </ul>
                     <div class="m-tags" style="margin-top:0.875rem;">
                         <span class="m-tag" style="background:#EDF5F4;color:#4A8C88;">Python</span>
