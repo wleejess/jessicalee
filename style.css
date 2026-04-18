@@ -92,6 +92,8 @@ body {
     min-height: calc(100vh - 52px);
     overflow: hidden;
     position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 #hero::before {
     content: '';
