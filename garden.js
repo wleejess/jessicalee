@@ -9,7 +9,7 @@
         blog:       '#6BADA8',
         contact:    '#6BADA8',
         edu:        '#DEAB94',
-        sar:        '#DEAB94',
+        orbic:      '#DEAB94',
         fwca:       '#9BCFC9',
         neutralize: '#DEAB94',
     };

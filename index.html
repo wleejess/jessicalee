@@ -1,333 +1,675 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>jessica lee</title>
-    <meta name="description" content="Jessica Lee — software engineer at the intersection of life science & computer science.">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'floral':     '#FFFCF3',
-                        'tradewind':  '#6BADA8',
-                        'downy':      '#9BCFC9',
-                        'peche':      '#DEAB94',
-                    }
-                }
-            }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jessica lee</title>
+  <meta name="description" content="Jessica Lee — software engineer at the intersection of life science & computer science.">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'floral':    '#FFFCF3',
+            'tradewind': '#6BADA8',
+            'downy':     '#9BCFC9',
+            'peche':     '#DEAB94',
+            'charcoal':  '#2A2A2A',
+            'ink':       '#1C1C1C',
+            'muted':     '#888880',
+          }
         }
-    </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;1,300;1,400&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <!-- ── Nav ── -->
 <nav id="topnav">
-    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.5rem;margin-left:auto;">
-        <div style="display:flex;gap:1.75rem;">
-            <a class="nav-link" href="https://github.com/wleejess" target="_blank" rel="noopener">GitHub</a>
-            <a class="nav-link" href="https://www.linkedin.com/in/wleejessica/" target="_blank" rel="noopener">LinkedIn</a>
-            <a class="nav-link" href="mailto:jess.wslee@gmail.com">Email</a>
-        </div>
-        <div class="science-cycle" style="font-size:0.65rem;margin-top:0;letter-spacing:0.12em;">
-            <span class="cycle-container">
-                <span class="cycle-ghost">computer</span>
-                <span id="cycle-word">life</span>
-            </span><span class="cycle-static"> science</span>
-        </div>
-    </div>
+  <a href="#hero" class="nav-logo">jl.</a>
+  <div class="nav-links" id="nav-links">
+    <a href="#about">about</a>
+    <a href="#work">work</a>
+    <a href="#notes">notes</a>
+    <span class="nav-sep">●</span>
+    <a href="#contact" class="nav-cta">say hello</a>
+  </div>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
-<!-- ── Canvas ── -->
-<section id="canvas">
+<!-- ── Hero ── -->
+<section id="hero">
 
-    <!-- Ambient dots — Tradewind, Downy, Peche -->
-    <div class="dec" style="top:11%;left:4%;width:7px;height:7px;border-radius:50%;background:#9BCFC9;opacity:0.5;animation:dfloat 7.2s ease-in-out infinite;"></div>
-    <div class="dec" style="top:32%;left:34%;width:4px;height:4px;border-radius:50%;background:#DEAB94;opacity:0.35;animation:dfloat 9.1s ease-in-out infinite 1s;"></div>
-    <div class="dec" style="top:26%;left:56%;width:5px;height:5px;border-radius:50%;background:#6BADA8;opacity:0.22;animation:dfloat 6.3s ease-in-out infinite 2s;"></div>
-    <div class="dec" style="top:63%;left:32%;width:5px;height:5px;border-radius:50%;background:#9BCFC9;opacity:0.4;animation:dfloat 8.4s ease-in-out infinite 0.4s;"></div>
-    <div class="dec" style="top:82%;left:22%;width:4px;height:4px;border-radius:50%;background:#DEAB94;opacity:0.3;animation:dfloat 7.7s ease-in-out infinite 3.2s;"></div>
-    <div class="dec" style="top:44%;left:83%;width:6px;height:6px;border-radius:50%;background:#6BADA8;opacity:0.18;animation:dfloat 10.5s ease-in-out infinite 1.5s;"></div>
-    <div class="dec" style="top:89%;left:62%;width:4px;height:4px;border-radius:50%;background:#9BCFC9;opacity:0.4;animation:dfloat 6.8s ease-in-out infinite 2.6s;"></div>
-    <div class="dec" style="top:52%;left:48%;width:3px;height:3px;border-radius:50%;background:#DEAB94;opacity:0.25;animation:dfloat 11s ease-in-out infinite 4s;"></div>
+  <!-- Left column -->
+  <div class="hero-left">
+    <p class="hero-eyebrow">
+      <span class="hero-eyebrow-dash">─────</span>
+      SOFTWARE ENGINEER &amp; RESEARCHER
+    </p>
+    <div class="hero-name-area">
+      <h1 class="hero-name">jessica<br>lee</h1>
+    </div>
+    <p class="hero-tagline">@ the intersection between<br>software engineering &amp; research.</p>
+    <div class="science-cycle">
+      <span class="cycle-container">
+        <span class="cycle-ghost">computer</span>
+        <span id="cycle-word">life</span>
+      </span><span class="cycle-static"> science</span>
+    </div>
+  </div>
 
-    <!-- Decorative hexagons -->
-    <svg class="dec" style="top:7%;left:26%;opacity:0.07;animation:dfloat 12s ease-in-out infinite;" width="30" height="30" viewBox="0 0 30 30" fill="none">
-        <polygon points="15,2 26,8.5 26,21.5 15,28 4,21.5 4,8.5" stroke="#6BADA8" stroke-width="1.5"/>
-    </svg>
-    <svg class="dec" style="top:76%;left:79%;opacity:0.07;animation:dfloat 9.5s ease-in-out infinite 2s;" width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <polygon points="12,2 21,7 21,17 12,22 3,17 3,7" stroke="#DEAB94" stroke-width="1.5"/>
-    </svg>
-    <svg class="dec" style="top:14%;left:78%;opacity:0.06;animation:dfloat 14s ease-in-out infinite 5s;" width="20" height="20" viewBox="0 0 20 20" fill="none">
-        <polygon points="10,1 18,5.5 18,14.5 10,19 2,14.5 2,5.5" stroke="#9BCFC9" stroke-width="1.5"/>
-    </svg>
-    <!-- Faint concentric rings behind hero -->
-    <svg class="dec" style="top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.03;pointer-events:none;" width="400" height="400" viewBox="0 0 400 400" fill="none">
-        <circle cx="200" cy="200" r="190" stroke="#6BADA8" stroke-width="1"/>
-        <circle cx="200" cy="200" r="138" stroke="#6BADA8" stroke-width="1"/>
-    </svg>
+  <!-- Right column — dotted grid with flowers -->
+  <div id="canvas" class="hero-right">
 
+    <!-- Ambient dots -->
+    <div class="dec" style="top:11%;left:8%;width:7px;height:7px;border-radius:50%;background:#9BCFC9;opacity:0.5;animation:dfloat 7.2s ease-in-out infinite;"></div>
+    <div class="dec" style="top:32%;left:20%;width:4px;height:4px;border-radius:50%;background:#DEAB94;opacity:0.35;animation:dfloat 9.1s ease-in-out infinite 1s;"></div>
+    <div class="dec" style="top:26%;left:62%;width:5px;height:5px;border-radius:50%;background:#6BADA8;opacity:0.22;animation:dfloat 6.3s ease-in-out infinite 2s;"></div>
+    <div class="dec" style="top:63%;left:28%;width:5px;height:5px;border-radius:50%;background:#9BCFC9;opacity:0.4;animation:dfloat 8.4s ease-in-out infinite 0.4s;"></div>
+    <div class="dec" style="top:78%;left:68%;width:4px;height:4px;border-radius:50%;background:#DEAB94;opacity:0.3;animation:dfloat 7.7s ease-in-out infinite 3.2s;"></div>
+    <div class="dec" style="top:44%;left:82%;width:6px;height:6px;border-radius:50%;background:#6BADA8;opacity:0.18;animation:dfloat 10.5s ease-in-out infinite 1.5s;"></div>
+    <div class="dec" style="top:85%;left:42%;width:4px;height:4px;border-radius:50%;background:#9BCFC9;opacity:0.4;animation:dfloat 6.8s ease-in-out infinite 2.6s;"></div>
+    <div class="dec" style="top:52%;left:50%;width:3px;height:3px;border-radius:50%;background:#DEAB94;opacity:0.25;animation:dfloat 11s ease-in-out infinite 4s;"></div>
 
-    <!-- ── Garden layer (interactive botanical vines) ── -->
+    <!-- Garden SVG (flowers bloom here) -->
     <svg id="garden" aria-hidden="true"></svg>
 
-    <!-- ── Hero ── -->
-    <div id="hero">
-        <h1>jessica lee</h1>
-        <p class="tagline">@ the intersection between software engineering & research.</p>
-    </div>
+    <!-- Palette + Bloom buttons -->
+    <div id="corner-btns">
 
-    <!-- ── Nodes ── -->
-    <div id="nodes">
-
-        <!-- About / Bio — Tradewind -->
-        <div class="node f1" data-panel="bio" style="top:14%;left:7%;">
-            <div class="node-ring" style="background:#EDF5F4;border-color:#6BADA8;color:#4A8C88;">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="8" r="3.5"/>
-                    <path d="M3 21c0-4.4 4-8 9-8s9 3.6 9 8"/>
-                </svg>
-            </div>
-            <span class="node-label" style="color:#4A8C88;">about</span>
+      <div id="palette-btn" class="canvas-btn">
+        <div class="canvas-btn-ring">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.437-.652-.437-1.125 0-.891.75-1.562 1.687-1.562H17c2.761 0 5-2.239 5-5 0-5.523-4.477-10-10-10z"/>
+            <circle cx="8.5"  cy="8.5"  r="1.2" fill="currentColor" stroke="none"/>
+            <circle cx="12"   cy="6.5"  r="1.2" fill="currentColor" stroke="none"/>
+            <circle cx="15.5" cy="8.5"  r="1.2" fill="currentColor" stroke="none"/>
+            <circle cx="17"   cy="12.5" r="1.2" fill="currentColor" stroke="none"/>
+          </svg>
         </div>
+        <span class="canvas-btn-label">palette</span>
+      </div>
 
-        <!-- Education — Tradewind -->
-        <div class="node f3" data-panel="edu" style="top:9%;left:72%;">
-            <div class="node-ring" style="background:#EDF5F4;border-color:#6BADA8;color:#4A8C88;">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M2 10l10-5 10 5-10 5z"/>
-                    <path d="M6 12v5c0 2 6 3 6 3s6-1 6-3v-5"/>
-                    <line x1="22" y1="10" x2="22" y2="16"/>
-                </svg>
-            </div>
-            <span class="node-label" style="color:#4A8C88;">education</span>
+      <div id="flower-spawner" class="canvas-btn">
+        <div class="canvas-btn-ring">
+          <svg width="22" height="22" viewBox="-14 -14 28 28" fill="currentColor">
+            <ellipse cx="0" cy="-6" rx="2.8" ry="5.5"/>
+            <ellipse cx="0" cy="-6" rx="2.8" ry="5.5" transform="rotate(72)"/>
+            <ellipse cx="0" cy="-6" rx="2.8" ry="5.5" transform="rotate(144)"/>
+            <ellipse cx="0" cy="-6" rx="2.8" ry="5.5" transform="rotate(216)"/>
+            <ellipse cx="0" cy="-6" rx="2.8" ry="5.5" transform="rotate(288)"/>
+            <circle cx="0" cy="0" r="2.5"/>
+          </svg>
         </div>
+        <span class="canvas-btn-label">bloom</span>
+      </div>
 
-        <!-- Project: Forestry Wellness — Peche -->
-        <div class="node f2" data-panel="fwca" style="top:67%;left:8%;">
-            <div class="node-ring" style="background:#FAF1EC;border-color:#DEAB94;color:#B8724F;">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="12" y1="22" x2="12" y2="13"/>
-                    <path d="M12 13c0 0-5-2-5-7a5 5 0 0 1 10 0c0 5-5 7-5 7z"/>
-                    <path d="M9 17c-2.2 0-4-1.3-4-4"/>
-                    <path d="M15 17c2.2 0 4-1.3 4-4"/>
-                </svg>
-            </div>
-            <span class="node-label" style="color:#B8724F;">forest wellness</span>
+    </div><!-- #corner-btns -->
+
+    <!-- Palette popover -->
+    <div id="palette-popover">
+      <p style="font-size:0.65rem;font-family:'JetBrains Mono',monospace;letter-spacing:0.12em;text-transform:uppercase;color:#bbb;margin-bottom:1rem;">design reference</p>
+      <p style="font-size:0.6rem;font-family:'JetBrains Mono',monospace;letter-spacing:0.14em;text-transform:uppercase;color:#ccc;margin-bottom:0.625rem;">colors</p>
+      <div style="display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1.125rem;">
+        <div style="display:flex;align-items:center;gap:0.75rem;">
+          <span style="width:20px;height:20px;border-radius:50%;background:#FFFCF3;border:1px solid #e8e6de;flex-shrink:0;"></span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#aaa;flex:1;">floral</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#888;">#FFFCF3</span>
         </div>
-
-        <!-- Project: SAR Analysis — Quaint Peche -->
-        <div class="node f4" data-panel="sar" style="top:74%;left:60%;">
-            <div class="node-ring" style="background:#FAF1EC;border-color:#DEAB94;color:#B8724F;">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="6"  cy="6"  r="2"/>
-                    <circle cx="18" cy="6"  r="2"/>
-                    <circle cx="12" cy="17" r="2"/>
-                    <line x1="7.7"  y1="6.9"  x2="10.5" y2="15.2"/>
-                    <line x1="16.3" y1="6.9"  x2="13.5" y2="15.2"/>
-                    <line x1="8"    y1="6"    x2="16"   y2="6"/>
-                </svg>
-            </div>
-            <span class="node-label" style="color:#B8724F;">sar analysis</span>
+        <div style="display:flex;align-items:center;gap:0.75rem;">
+          <span style="width:20px;height:20px;border-radius:50%;background:#6BADA8;flex-shrink:0;"></span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#aaa;flex:1;">tradewind</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#6BADA8;">#6BADA8</span>
         </div>
-
-
-        <!-- Project: Neutralize — Peche -->
-        <div class="node f3" data-panel="neutralize" style="top:58%;left:46%;">
-            <div class="node-ring" style="background:#FAF1EC;border-color:#DEAB94;color:#B8724F;">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="12" y1="3" x2="12" y2="21"/>
-                    <line x1="3" y1="21" x2="21" y2="21"/>
-                    <line x1="5" y1="9" x2="19" y2="9"/>
-                    <line x1="5" y1="9" x2="12" y2="3"/>
-                    <line x1="19" y1="9" x2="12" y2="3"/>
-                    <path d="M2 15h6l-3-6z"/>
-                    <path d="M16 15h6l-3-6z"/>
-                </svg>
-            </div>
-            <span class="node-label" style="color:#B8724F;">neutralize</span>
+        <div style="display:flex;align-items:center;gap:0.75rem;">
+          <span style="width:20px;height:20px;border-radius:50%;background:#9BCFC9;flex-shrink:0;"></span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#aaa;flex:1;">downy</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#9BCFC9;">#9BCFC9</span>
         </div>
-
-        <!-- Experience — Tradewind -->
-        <div class="node f4" data-panel="exp" style="top:25%;left:44%;">
-            <div class="node-ring" style="background:#EDF5F4;border-color:#6BADA8;color:#4A8C88;">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="2" y="7" width="20" height="14" rx="2.5"/>
-                    <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
-                    <line x1="12" y1="12" x2="12" y2="12.01"/>
-                    <path d="M2 12.5s4.5 2.5 10 2.5 10-2.5 10-2.5"/>
-                </svg>
-            </div>
-            <span class="node-label" style="color:#4A8C88;">experience</span>
+        <div style="display:flex;align-items:center;gap:0.75rem;">
+          <span style="width:20px;height:20px;border-radius:50%;background:#DEAB94;flex-shrink:0;"></span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#aaa;flex:1;">peche</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#DEAB94;">#DEAB94</span>
         </div>
-
-        <!-- Blog / Notes — Tradewind -->
-        <div class="node f7" data-panel="blog" style="top:44%;left:16%;">
-            <div class="node-ring" style="background:#EDF5F4;border-color:#6BADA8;color:#4A8C88;">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 20h9"/>
-                    <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/>
-                </svg>
-            </div>
-            <span class="node-label" style="color:#4A8C88;">notes</span>
+      </div>
+      <p style="font-size:0.6rem;font-family:'JetBrains Mono',monospace;letter-spacing:0.14em;text-transform:uppercase;color:#ccc;margin-bottom:0.625rem;">type</p>
+      <div style="display:flex;flex-direction:column;gap:0.5rem;">
+        <div style="display:flex;align-items:baseline;gap:0.75rem;">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:300;color:#555;flex:1;">Cormorant Garamond</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#bbb;">titles</span>
         </div>
-
-        <!-- Contact — Tradewind -->
-        <div class="node-wrap-center">
-            <div class="node f6" data-panel="contact">
-                <div class="node-ring" style="background:#EDF5F4;border-color:#6BADA8;color:#4A8C88;">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="2" y="4" width="20" height="16" rx="2.5"/>
-                        <polyline points="2,7.5 12,14 22,7.5"/>
-                    </svg>
-                </div>
-                <span class="node-label" style="color:#4A8C88;">contact</span>
-            </div>
+        <div style="display:flex;align-items:baseline;gap:0.75rem;">
+          <span style="font-family:'Inter',sans-serif;font-size:0.8125rem;font-weight:400;color:#555;flex:1;">Inter</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#bbb;">body</span>
         </div>
+        <div style="display:flex;align-items:baseline;gap:0.75rem;">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#555;flex:1;">JetBrains Mono</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#bbb;">labels</span>
+        </div>
+      </div>
+    </div><!-- #palette-popover -->
 
-    </div><!-- #nodes -->
+  </div><!-- #canvas / .hero-right -->
+
 </section>
 
-<!-- ── Bottom-right corner buttons ── -->
-<div id="corner-btns" style="position:fixed;bottom:2rem;z-index:10;display:flex;gap:1rem;align-items:flex-end;">
+<!-- ── About ── -->
+<section id="about">
 
-    <!-- Palette reference -->
-    <div id="palette-btn" class="node f5">
-        <div class="node-ring" style="background:#EDF5F4;border-color:#6BADA8;color:#4A8C88;">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.437-.652-.437-1.125 0-.891.75-1.562 1.687-1.562H17c2.761 0 5-2.239 5-5 0-5.523-4.477-10-10-10z"/>
-                <circle cx="8.5"  cy="8.5"  r="1.2" fill="currentColor" stroke="none"/>
-                <circle cx="12"   cy="6.5"  r="1.2" fill="currentColor" stroke="none"/>
-                <circle cx="15.5" cy="8.5"  r="1.2" fill="currentColor" stroke="none"/>
-                <circle cx="17"   cy="12.5" r="1.2" fill="currentColor" stroke="none"/>
-            </svg>
-        </div>
-        <span class="node-label" style="color:#4A8C88;">palette</span>
-    </div>
-
-    <!-- Bloom -->
-    <div id="flower-spawner" class="node f2">
-        <div class="node-ring" style="background:#EDF5F4;border-color:#6BADA8;color:#4A8C88;">
-            <svg width="28" height="28" viewBox="-14 -14 28 28" fill="currentColor">
-                <ellipse cx="0" cy="-6" rx="2.8" ry="5.5"/>
-                <ellipse cx="0" cy="-6" rx="2.8" ry="5.5" transform="rotate(72)"/>
-                <ellipse cx="0" cy="-6" rx="2.8" ry="5.5" transform="rotate(144)"/>
-                <ellipse cx="0" cy="-6" rx="2.8" ry="5.5" transform="rotate(216)"/>
-                <ellipse cx="0" cy="-6" rx="2.8" ry="5.5" transform="rotate(288)"/>
-                <circle cx="0" cy="0" r="2.5"/>
-            </svg>
-        </div>
-        <span class="node-label" style="color:#4A8C88;">bloom</span>
-    </div>
-
-</div>
-
-<!-- ── Palette popover ── -->
-<div id="palette-popover">
-    <p style="font-size:0.65rem;font-family:'JetBrains Mono',monospace;letter-spacing:0.12em;text-transform:uppercase;color:#bbb;margin-bottom:1rem;">design reference</p>
-
-    <!-- Colors -->
-    <p style="font-size:0.6rem;font-family:'JetBrains Mono',monospace;letter-spacing:0.14em;text-transform:uppercase;color:#ccc;margin-bottom:0.625rem;">colors</p>
-    <div style="display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1.125rem;">
-        <div style="display:flex;align-items:center;gap:0.75rem;">
-            <span style="width:20px;height:20px;border-radius:50%;background:#FFFCF3;border:1px solid #e8e6de;flex-shrink:0;"></span>
-            <span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#aaa;flex:1;">floral</span>
-            <span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#888;">#FFFCF3</span>
-        </div>
-        <div style="display:flex;align-items:center;gap:0.75rem;">
-            <span style="width:20px;height:20px;border-radius:50%;background:#6BADA8;flex-shrink:0;"></span>
-            <span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#aaa;flex:1;">tradewind</span>
-            <span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#6BADA8;">#6BADA8</span>
-        </div>
-        <div style="display:flex;align-items:center;gap:0.75rem;">
-            <span style="width:20px;height:20px;border-radius:50%;background:#9BCFC9;flex-shrink:0;"></span>
-            <span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#aaa;flex:1;">downy</span>
-            <span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#9BCFC9;">#9BCFC9</span>
-        </div>
-        <div style="display:flex;align-items:center;gap:0.75rem;">
-            <span style="width:20px;height:20px;border-radius:50%;background:#DEAB94;flex-shrink:0;"></span>
-            <span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#aaa;flex:1;">peche</span>
-            <span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#DEAB94;">#DEAB94</span>
+    <div class="about-image-col">
+        <div class="about-canvas-frame" id="about-canvas-frame">
+            <svg id="about-garden" aria-hidden="true"></svg>
+            <div class="about-canvas-btn-wrap">
+                <button id="about-connect-btn" class="canvas-btn" aria-label="Connect flowers">
+                    <div class="canvas-btn-ring">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                            <circle cx="5"  cy="5"  r="2"/>
+                            <circle cx="19" cy="8"  r="2"/>
+                            <circle cx="8"  cy="19" r="2"/>
+                            <circle cx="19" cy="19" r="2"/>
+                            <line x1="5"  y1="5"  x2="19" y2="8"/>
+                            <line x1="19" y1="8"  x2="19" y2="19"/>
+                            <line x1="5"  y1="5"  x2="8"  y2="19"/>
+                            <line x1="8"  y1="19" x2="19" y2="19"/>
+                        </svg>
+                    </div>
+                    <span class="canvas-btn-label connect-label">connect</span>
+                </button>
+            </div>
         </div>
     </div>
 
-    <!-- Type -->
-    <p style="font-size:0.6rem;font-family:'JetBrains Mono',monospace;letter-spacing:0.14em;text-transform:uppercase;color:#ccc;margin-bottom:0.625rem;">type</p>
-    <div style="display:flex;flex-direction:column;gap:0.5rem;">
-        <div style="display:flex;align-items:baseline;gap:0.75rem;">
-            <span style="font-family:'Inter',sans-serif;font-size:0.8125rem;font-weight:400;color:#555;flex:1;">Inter</span>
-            <span style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#bbb;">body &amp; headings</span>
+    <div class="about-text-col">
+        <p class="about-eyebrow">─── ABOUT</p>
+        <h2 class="about-heading">Building systems that bridge the gap between theory and practice.</h2>
+        <p class="about-body">
+            I exist somewhere between life science &amp; computer science — where curiosity meets code.
+            My work spans scientific software, data visualization, and building tools that empower
+            researchers and practitioners to think more clearly.
+        </p>
+
+        <div class="edu-block">
+            <p class="edu-label">EDUCATION</p>
+            <div class="edu-item">
+                <div class="edu-dot"></div>
+                <div>
+                    <p class="edu-school">UC San Diego</p>
+                    <p class="edu-detail">B.S. Nanoengineering &middot; Minor in Chemistry</p>
+                </div>
+            </div>
+            <div class="edu-item">
+                <div class="edu-dot"></div>
+                <div>
+                    <p class="edu-school">Oregon State University</p>
+                    <p class="edu-detail">B.S. Computer Science &middot; Post-baccalaureate</p>
+                </div>
+            </div>
         </div>
-        <div style="display:flex;align-items:baseline;gap:0.75rem;">
-            <span style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#555;flex:1;">JetBrains Mono</span>
-            <span style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#bbb;">labels &amp; code</span>
+
+        <div class="about-skills">
+            <div class="skills-group">
+                <p class="skills-label">Domains</p>
+                <div class="skills-pills">
+                    <span class="tag-pill">IoT Systems</span>
+                    <span class="tag-pill">Healthcare Tech</span>
+                    <span class="tag-pill">Observability</span>
+                    <span class="tag-pill">Drug Discovery</span>
+                </div>
+            </div>
+            <div class="skills-group">
+                <p class="skills-label">Languages &amp; Frameworks</p>
+                <div class="skills-pills">
+                    <span class="tag-pill">Python</span>
+                    <span class="tag-pill">C# / .NET</span>
+                    <span class="tag-pill">SQL</span>
+                    <span class="tag-pill">React</span>
+                    <span class="tag-pill">Flask</span>
+                </div>
+            </div>
+            <div class="skills-group">
+                <p class="skills-label">Tools &amp; Practices</p>
+                <div class="skills-pills">
+                    <span class="tag-pill">AWS</span>
+                    <span class="tag-pill">LLM Integration</span>
+                    <span class="tag-pill">Databricks</span>
+                    <span class="tag-pill">MongoDB</span>
+                    <span class="tag-pill">Solution Design</span>
+                </div>
+            </div>
         </div>
     </div>
-</div>
 
-<!-- ── Right side panel (info nodes) ── -->
+</section>
+
+<!-- ── Work (projects + experience tabbed) ── -->
+<section id="work">
+
+    <div class="section-header">
+        <p class="section-eyebrow">SELECTED WORK</p>
+        <h2 class="section-heading">Projects &amp; Experience</h2>
+        <div class="section-accent-line"></div>
+    </div>
+
+    <div class="work-tabs" role="tablist">
+        <button class="work-tab active" data-tab="projects" role="tab">projects</button>
+        <button class="work-tab" data-tab="experience" role="tab">experience</button>
+    </div>
+
+    <!-- Projects pane -->
+    <div class="work-pane active" id="pane-projects">
+    <div class="featured-list">
+
+        <div class="featured-project">
+            <div class="featured-img-wrap featured-img-video" aria-hidden="true">
+                <video class="featured-video"
+                       src="https://github.com/user-attachments/assets/2225c4f7-13af-411c-88dc-603c47f8f59a"
+                       muted loop playsinline preload="none">
+                </video>
+            </div>
+            <div class="featured-content">
+<h3 class="featured-title">orbIC</h3>
+                <div class="featured-desc">
+                    <p>A browser-native chemical space navigator for hit-to-lead and lead optimization — no installation, no license, no data leaves your browser. Renders 4,147 compounds via TMAP · MST layout.</p>
+                </div>
+                <ul class="featured-tags">
+                    <li>React</li><li>D3</li><li>OpenChemLib</li><li>Cheminformatics</li>
+                </ul>
+                <div class="featured-links">
+                    <button class="featured-link-btn" data-panel="orbic">case study ↗</button>
+                    <a href="https://github.com/wleejess/orbIC" target="_blank" rel="noopener" class="featured-link-icon" aria-label="GitHub">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="featured-project">
+            <div class="featured-img-wrap featured-img-video" aria-hidden="true">
+                <video class="featured-video"
+                       src="https://github.com/user-attachments/assets/770d8ecb-c82e-44b7-88b3-e4165e9d40fe"
+                       poster="https://github.com/user-attachments/assets/10128d16-8d02-46b4-b36c-bb9d6468e7ed"
+                       muted loop playsinline preload="none">
+                </video>
+            </div>
+            <div class="featured-content">
+<h3 class="featured-title">Neutralize</h3>
+                <div class="featured-desc">
+                    <p>A browser extension for Chrome and Firefox that analyzes selected text for rhetorical devices — appeals, loaded language, and structural techniques — then offers a neutral rewrite alongside synonym alternatives.</p>
+                </div>
+                <ul class="featured-tags">
+                    <li>React</li><li>TypeScript</li><li>Claude API</li><li>Chrome MV3</li>
+                </ul>
+                <div class="featured-links">
+                    <button class="featured-link-btn" data-panel="neutralize" data-panel-dir="left">case study ↗</button>
+                    <a href="https://github.com/wleejess/neutralize" target="_blank" rel="noopener" class="featured-link-icon" aria-label="GitHub">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="featured-project">
+            <div class="featured-img-wrap" aria-hidden="true">
+                <svg width="100%" viewBox="0 0 400 280" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="400" height="280" fill="#8BA88A"/>
+                    <circle cx="200" cy="-30" r="220" fill="#A8C2A8" opacity="0.25"/>
+                    <path d="M-10,300 C60,200 140,220 180,140 C220,60 200,10 280,20" stroke="#C8D8C0" stroke-width="1.5" fill="none" opacity="0.55"/>
+                    <path d="M0,280 C80,200 170,230 220,160 C270,90 260,40 360,20" stroke="#A0BCA0" stroke-width="1" fill="none" opacity="0.5"/>
+                    <path d="M60,180 C80,148 120,155 105,180 C90,205 60,202 60,180Z" fill="#6A9A6A" opacity="0.45"/>
+                    <path d="M300,140 C314,122 340,127 330,144 C320,162 298,162 300,140Z" fill="#7AAA7A" opacity="0.4"/>
+                    <circle cx="50"  cy="60"  r="3"   fill="#FDFAF4" opacity="0.3"/>
+                    <circle cx="180" cy="40"  r="2"   fill="#FDFAF4" opacity="0.25"/>
+                    <circle cx="260" cy="240" r="1.5" fill="#FDFAF4" opacity="0.3"/>
+                </svg>
+            </div>
+            <div class="featured-content">
+<h3 class="featured-title">Forest Wellness</h3>
+                <div class="featured-desc">
+                    <p>An iOS and Android cross-platform app that digitizes forest ecosystem surveying. Field researchers log observations, track health metrics, and assess ecosystems over time — offline-first, no connectivity required.</p>
+                </div>
+                <ul class="featured-tags">
+                    <li>Dart</li><li>Flutter</li><li>SQFlite</li><li>iOS &amp; Android</li>
+                </ul>
+                <div class="featured-links">
+                    <button class="featured-link-btn" data-panel="fwca">view details ↗</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </div><!-- #pane-projects -->
+
+    <!-- Experience pane -->
+    <div class="work-pane" id="pane-experience">
+
+    <div class="exp-tabs-wrap">
+
+        <div class="exp-tab-list" role="tablist">
+            <button class="exp-tab-btn active" data-exp="biointelliSense" role="tab">BioIntelliSense</button>
+            <button class="exp-tab-btn" data-exp="augmedix" role="tab">Augmedix</button>
+            <button class="exp-tab-btn" data-exp="vertex" role="tab">Vertex Pharmaceuticals</button>
+            <button class="exp-tab-btn" data-exp="archive" role="tab">Archive</button>
+            <div class="exp-tab-indicator" aria-hidden="true"></div>
+        </div>
+
+        <div class="exp-panels">
+
+            <div class="exp-panel active" id="exp-biointelliSense">
+                <h3 class="exp-panel-title">Software Engineer, Solution Engineering <span class="exp-panel-at">@ BioIntelliSense</span></h3>
+                <p class="exp-panel-range">Sep 2024 – Present &middot; Full-time &middot; Remote</p>
+                <ul class="exp-panel-bullets">
+                    <li>Led development of an internal operations platform serving 200+ users across device lifecycle management and patient processing, built on .NET/Blazor, MongoDB Atlas, and AWS</li>
+                    <li>Architected enterprise security infrastructure with Auth0 RBAC, JWT authorization, AWS VPC peering, and TLS encryption</li>
+                    <li>Implemented Databricks dashboards monitoring 5K+ IoT devices, cutting mean time to resolution by 40%</li>
+                    <li>Designed audit log framework with MongoDB schema and indexing enabling sub-second retrieval</li>
+                </ul>
+                <div class="about-tags">
+                    <span class="tag-pill">.NET</span>
+                    <span class="tag-pill">Blazor</span>
+                    <span class="tag-pill">MongoDB</span>
+                    <span class="tag-pill">AWS</span>
+                    <span class="tag-pill">Auth0</span>
+                    <span class="tag-pill">Databricks</span>
+                </div>
+            </div>
+
+            <div class="exp-panel" id="exp-augmedix">
+                <h3 class="exp-panel-title">Project Manager <span class="exp-panel-at">@ Augmedix</span></h3>
+                <p class="exp-panel-range">Sep 2021 – Jun 2023 &middot; Full-time &middot; Hybrid</p>
+                <ul class="exp-panel-bullets">
+                    <li>Drove product adoption across a 1,500+ user base by leading usability studies, analyzing user behavior data, and bridging engineering and business stakeholders</li>
+                    <li>Achieved 90% product adoption through data-driven UI/UX enhancements and feature prioritization</li>
+                    <li>Reduced average ticket resolution time by 22% via detailed technical specifications with reproduction steps</li>
+                    <li>Improved user satisfaction by 30% through systematic analysis of system telemetry and behavior patterns</li>
+                </ul>
+                <div class="about-tags">
+                    <span class="tag-pill">Product Management</span>
+                    <span class="tag-pill">UX/UI</span>
+                    <span class="tag-pill">Data Analysis</span>
+                </div>
+            </div>
+
+            <div class="exp-panel" id="exp-vertex">
+                <h3 class="exp-panel-title">Research Associate <span class="exp-panel-at">@ Vertex Pharmaceuticals</span></h3>
+                <p class="exp-panel-range">Sep 2019 – Apr 2021 &middot; Contract &middot; San Diego, CA</p>
+                <ul class="exp-panel-bullets">
+                    <li>Developed automated systems for high-throughput experimentation, building Python-based ETL pipelines to process large-scale screening data for drug discovery programs</li>
+                    <li>Engineered ETL pipelines automating integration of 100K+ daily data points, improving hit identification accuracy by 35%</li>
+                    <li>Reduced data processing time by 50% and eliminated manual entry errors through end-to-end pipeline automation</li>
+                </ul>
+                <div class="about-tags">
+                    <span class="tag-pill">Python</span>
+                    <span class="tag-pill">ETL</span>
+                    <span class="tag-pill">Cheminformatics</span>
+                </div>
+            </div>
+
+            <div class="exp-panel" id="exp-archive">
+                <p class="exp-panel-range" style="margin-bottom:1.25rem;">Earlier roles in life science &amp; research.</p>
+                <div class="exp-earlier-grid">
+                    <div class="exp-earlier-row">
+                        <div><span class="exp-earlier-co">Dar&eacute; Bioscience</span><span class="exp-earlier-title">Analytical Methods Intern</span></div>
+                        <span class="exp-earlier-date">Feb – Jun 2019</span>
+                    </div>
+                    <div class="exp-earlier-row">
+                        <div><span class="exp-earlier-co">RAPT Therapeutics</span><span class="exp-earlier-title">Medicinal Chemistry Intern</span></div>
+                        <span class="exp-earlier-date">Jun – Sep 2018</span>
+                    </div>
+                    <div class="exp-earlier-row">
+                        <div><span class="exp-earlier-co">UC San Diego Health</span><span class="exp-earlier-title">Pharmacology Lab Assistant</span></div>
+                        <span class="exp-earlier-date">Oct 2015 – Mar 2019</span>
+                    </div>
+                    <div class="exp-earlier-row">
+                        <div><span class="exp-earlier-co">The EVERY Company</span><span class="exp-earlier-title">Analytical Methods Intern</span></div>
+                        <span class="exp-earlier-date">Jun – Sep 2017</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    </div><!-- #pane-experience -->
+
+</section>
+
+<!-- ── Notes ── -->
+<section id="notes">
+
+    <p class="notes-header">&#x25A1; FROM THE NOTEBOOK</p>
+
+    <div class="notes-grid">
+
+        <div class="note-card">
+            <p class="note-date">Mar 2026</p>
+            <h3 class="note-title">On designing for ambiguity in research tools</h3>
+            <p class="note-body-text">
+                When users don't know what they're looking for, how do we design systems that support
+                exploration without overwhelming? Notes from a recent project that challenged every
+                assumption I had about search interfaces.
+            </p>
+            <p class="note-tags">Research &nbsp; UX</p>
+        </div>
+
+        <div class="note-card">
+            <p class="note-date">Feb 2026</p>
+            <h3 class="note-title">The quiet power of monospace in personal sites</h3>
+            <p class="note-body-text">
+                Why more designers are reaching for monospaced fonts — and what it signals about
+                authenticity in digital spaces.
+            </p>
+            <p class="note-tags">Typography &nbsp; Personal</p>
+        </div>
+
+        <div class="note-card">
+            <p class="note-date">Jan 2026</p>
+            <h3 class="note-title">Building data pipelines that respect their users</h3>
+            <p class="note-body-text">
+                Data ethics isn't just about privacy policies. It's about the micro-decisions we make
+                when transforming, storing, and surfacing information.
+            </p>
+            <p class="note-tags">Data Ethics &nbsp; Engineering</p>
+        </div>
+
+    </div>
+
+    <div class="notes-footer-row">
+        <a href="notes/intro.md" class="notes-view-all">View all notes →</a>
+    </div>
+
+</section>
+
+<!-- ── Contact ── -->
+<section id="contact">
+
+    <div class="contact-inner">
+
+        <div class="contact-text">
+            <h2 class="contact-heading">Say hello.</h2>
+            <p class="contact-subtext">I love meeting people who care about building thoughtful technology.</p>
+            <div class="contact-ctas">
+                <a href="mailto:jess.wslee@gmail.com" class="cta-btn cta-primary">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,7.5 12,13.5 22,7.5"/>
+                    </svg>
+                    Email
+                </a>
+                <a href="https://github.com/wleejess" target="_blank" rel="noopener" class="cta-btn cta-outline-dark">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+                    </svg>
+                    GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/wleejessica/" target="_blank" rel="noopener" class="cta-btn cta-outline-dark">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                    LinkedIn
+                </a>
+            </div>
+        </div>
+
+        <div class="contact-deco" aria-hidden="true">
+            <div class="contact-circle contact-circle-1"></div>
+            <div class="contact-circle contact-circle-2"></div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ── Footer ── -->
+<footer>
+    <div class="footer-left">
+        <span class="footer-dot">●</span>
+        <span>built with Claude Code, modified with ♥ and logic by jess.</span>
+    </div>
+    <span class="footer-copy">&copy; 2026 jessica lee</span>
+</footer>
+
+<!-- ── Side panel ── -->
 <div id="side-panel">
-    <div id="side-panel-resize" aria-hidden="true"></div>
+    <div id="side-panel-resize"></div>
     <div id="side-content"></div>
 </div>
 
-<!-- ── Project fullscreen overlay ── -->
-<div id="project-overlay">
-    <div class="project-overlay-card">
-        <div class="panel-handle" style="cursor:default;">
+<!-- ── Project overlay ── -->
+<div id="project-overlay" role="dialog" aria-modal="true">
+    <div id="project-overlay-sheet">
+        <div id="project-overlay-header">
             <span id="project-overlay-tag" class="m-tag"></span>
-            <span style="flex:1"></span>
-            <button id="project-overlay-close" class="panel-close" aria-label="Close">
-                <svg width="9" height="9" viewBox="0 0 9 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <button id="project-overlay-close" aria-label="Close">
+                <svg width="10" height="10" viewBox="0 0 9 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
                     <line x1="1" y1="1" x2="8" y2="8"/><line x1="8" y1="1" x2="1" y2="8"/>
                 </svg>
             </button>
         </div>
-        <div id="project-overlay-body" class="panel-body"></div>
+        <div id="project-overlay-body"></div>
     </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-<script src="garden.js"></script>
 <script type="module" src="panels.js"></script>
+<script src="garden.js"></script>
+<script src="about-canvas.js"></script>
 <script>
-    // ── Palette popover ──
-    (function () {
-        const btn = document.getElementById('palette-btn');
-        const pop = document.getElementById('palette-popover');
-        btn.addEventListener('click', function (e) {
-            e.stopPropagation();
-            pop.classList.toggle('palette-open');
-        });
-        document.addEventListener('click', function (e) {
-            if (!pop.contains(e.target) && !btn.contains(e.target)) {
-                pop.classList.remove('palette-open');
-            }
-        });
-    })();
+  // ── Science cycle ──
+  (function () {
+    var words  = ['life', 'computer'];
+    var colors = ['#6BADA8', '#DEAB94'];
+    var idx = 0;
+    var el = document.getElementById('cycle-word');
+    setInterval(function () {
+      el.classList.add('cycle-fade-out');
+      setTimeout(function () {
+        idx = (idx + 1) % 2;
+        el.textContent = words[idx];
+        el.style.color = colors[idx];
+        el.classList.remove('cycle-fade-out');
+      }, 350);
+    }, 2800);
+  })();
 
-    // ── Cycling text ──
-    (function () {
-        const words  = ['life', 'computer'];
-        const colors = ['#6BADA8', '#DEAB94'];
-        let idx = 0;
-        const el = document.getElementById('cycle-word');
-        setInterval(function () {
-            el.classList.add('cycle-fade-out');
-            setTimeout(function () {
-                idx = (idx + 1) % 2;
-                el.textContent  = words[idx];
-                el.style.color  = colors[idx];
-                el.classList.remove('cycle-fade-out');
-            }, 350);
-        }, 2800);
-    })();
+  // ── Palette popover ──
+  (function () {
+    var btn = document.getElementById('palette-btn');
+    var pop = document.getElementById('palette-popover');
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      pop.classList.toggle('palette-open');
+    });
+    document.addEventListener('click', function (e) {
+      if (!pop.contains(e.target) && !btn.contains(e.target)) {
+        pop.classList.remove('palette-open');
+      }
+    });
+  })();
+
+  // ── Nav scroll ──
+  (function () {
+    var nav = document.getElementById('topnav');
+    window.addEventListener('scroll', function () {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+  })();
+
+  // ── Work tabs ──
+  (function () {
+    document.querySelectorAll('.work-tab').forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        document.querySelectorAll('.work-tab').forEach(function (t) { t.classList.remove('active'); });
+        document.querySelectorAll('.work-pane').forEach(function (p) { p.classList.remove('active'); });
+        tab.classList.add('active');
+        document.getElementById('pane-' + tab.dataset.tab).classList.add('active');
+      });
+    });
+  })();
+
+  // ── Featured video hover ──
+  (function () {
+    document.querySelectorAll('.featured-video').forEach(function (v) {
+      var wrap = v.closest('.featured-img-wrap');
+      wrap.addEventListener('mouseenter', function () { v.play(); });
+      wrap.addEventListener('mouseleave', function () { v.pause(); });
+    });
+  })();
+
+  // ── Experience tabs ──
+  (function () {
+    var tabs      = document.querySelectorAll('.exp-tab-btn');
+    var indicator = document.querySelector('.exp-tab-indicator');
+
+    function moveIndicator(btn) {
+      if (!indicator || !btn) return;
+      indicator.style.height    = btn.offsetHeight + 'px';
+      indicator.style.transform = 'translateY(' + btn.offsetTop + 'px)';
+    }
+
+    tabs.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        tabs.forEach(function (t) { t.classList.remove('active'); });
+        document.querySelectorAll('.exp-panel').forEach(function (p) { p.classList.remove('active'); });
+        btn.classList.add('active');
+        var panel = document.getElementById('exp-' + btn.dataset.exp);
+        if (panel) panel.classList.add('active');
+        moveIndicator(btn);
+      });
+    });
+
+    requestAnimationFrame(function () {
+      moveIndicator(document.querySelector('.exp-tab-btn.active'));
+    });
+  })();
+
+  // ── Mobile nav ──
+  (function () {
+    var btn   = document.getElementById('nav-hamburger');
+    var links = document.getElementById('nav-links');
+    btn.addEventListener('click', function () {
+      var open = links.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open);
+    });
+    links.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        links.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  })();
 </script>
 </body>
 </html>

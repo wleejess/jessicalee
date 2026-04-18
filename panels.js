@@ -18,8 +18,8 @@ const panels = {
 };
 
 // ── Panel groups ──────────────────────────────────────────
-const INFO_KEYS       = new Set(['bio', 'edu', 'exp', 'contact', 'blog']);
-const FULLSCREEN_KEYS = new Set(['fwca', 'sar', 'neutralize']);
+const INFO_KEYS       = new Set(['bio', 'edu', 'exp', 'contact', 'blog', 'fwca', 'orbic', 'neutralize']);
+const FULLSCREEN_KEYS = new Set();
 
 // ── Shared SVG ────────────────────────────────────────────
 const CLOSE_SVG = `
@@ -91,13 +91,15 @@ async function loadNote(slug, bodyEl, titleEl) {
 const sidePanelEl  = document.getElementById('side-panel');
 const sideContentEl = document.getElementById('side-content');
 const sectionMap   = new Map();
-let panelWidth     = 390;
+let panelWidth     = Math.round(window.innerWidth * 0.65);
 
 function setSideW(open) {
     document.documentElement.style.setProperty('--side-w', open ? panelWidth + 'px' : '0px');
 }
 
-function openSideSection(key) {
+function openSideSection(key, dir = 'right') {
+    sidePanelEl.classList.toggle('side-panel-left', dir === 'left');
+
     if (sectionMap.has(key)) {
         const existing = sectionMap.get(key);
         existing.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -160,7 +162,10 @@ resizeEl.addEventListener('mousedown', e => {
     sidePanelEl.style.transition = 'none';
 
     const onMove = e => {
-        panelWidth = Math.max(280, Math.min(640, startW + (startX - e.clientX)));
+        const delta = sidePanelEl.classList.contains('side-panel-left')
+            ? e.clientX - startX
+            : startX - e.clientX;
+        panelWidth = Math.max(320, Math.min(Math.round(window.innerWidth * 0.9), startW + delta));
         sidePanelEl.style.width = panelWidth + 'px';
         setSideW(sidePanelEl.classList.contains('open'));
     };
@@ -216,7 +221,8 @@ document.getElementById('project-overlay-close').addEventListener('click', close
 document.querySelectorAll('[data-panel]').forEach(el => {
     el.addEventListener('click', () => {
         const key = el.dataset.panel;
-        if      (INFO_KEYS.has(key))       openSideSection(key);
+        const dir = el.dataset.panelDir || 'right';
+        if      (INFO_KEYS.has(key))       openSideSection(key, dir);
         else if (FULLSCREEN_KEYS.has(key)) openFullscreen(key);
     });
 });
